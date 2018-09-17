@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>PetSitter</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	 crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="assets/css/styles.css" type="text/css">
+</head>
+
+<body>
+	<nav class="navbar fixed-top navbar-expand-lg navbar-light">
+		<a class="navbar-brand" href="/">
+			<h1>SitterFinder</h1>
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+		 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="/search">find a sitter</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/manage">my reservations</a>
+				</li>
+				<li class="nav-item">
+					<button class="btn btn-danger" id="barloginbtn">log in</button>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	{{{ body }}}
+	<div id="loginmodal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<form>
+				<div class="form-group">
+					<label for="emailinput">Email address</label>
+					<input type="email" class="form-control" id="emailinput" placeholder="Enter email">
+				</div>
+				<div class="form-group">
+					<label for="pwinput">Password</label>
+					<input type="password" class="form-control" id="pwinput" placeholder="Password">
+				</div>
+				<button type="submit" class="btn btn-primary" id="submitloginbtn">Submit</button>
+			</form>
+		</div>
+	</div>
+	<div id="messagemodal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+		</div>
+	</div>
+	<script src="assets/js/script.js"></script>
+</body>
+
+</html>
