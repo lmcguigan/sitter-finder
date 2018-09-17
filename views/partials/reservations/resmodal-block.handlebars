@@ -1,0 +1,17 @@
+<div id="reservation-modal-{{id}}" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Your reservation:</h3>
+        <p>{{month}} {{date}}</p>
+        <p>Sitter: {{sittername}}</p>
+        <p>Service: {{service}}</p>
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <button class="btn btn-danger cancel" data-id="{{id}}"></button>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-danger modify" data-id="{{id}}"></button>
+            </div>
+        </div>
+    </div>
+</div>
