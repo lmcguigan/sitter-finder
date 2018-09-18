@@ -13,13 +13,16 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 //static files to be served
-app.use(express.static("./public"));
+app.use(express.static("public"));
 
 // Routes
 // =============================================================
-var routes = require("./controllers/controller.js");
+var apiRoutes = require("./controllers/controller.js");
+var htmlRoutes = require("./controllers/htmlRoutes.js");
 
-app.use("/", routes);
+
+app.use(apiRoutes);
+app.use(htmlRoutes);
 
 // Starts the server to begin listening
 // =============================================================

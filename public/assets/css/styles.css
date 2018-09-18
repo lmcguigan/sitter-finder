@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-.splash{
-    margin-top: 4rem;
-=======
 .splash {
     margin-top: 10rem;
 }
@@ -100,5 +96,4 @@ a:hover{
 .datecol{
     background-color: #0F4369;
     color: white;
->>>>>>> 20f678e52dd7650022966e6541ffd66c3c7ccea4
 }
