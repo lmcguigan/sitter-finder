@@ -5,6 +5,7 @@
                 <h3>My Reservations</h3>
                 <!-In handlebars, we will dynamically generate a new card for each match returned->
                 <!-These are just here to test the design and will be deleted when there is a database to reference with a handlebars partial->
+                {{#each reservations}} {{#unless cancelled}} {{> reservations/res-block}} {{/unless}} {{/each}}
                 <div class="row resrow">
                     <div class="col-2 datecol">
                         03
@@ -41,3 +42,4 @@
         </div>
     </div>
 </div>
+{{#each reservations}} {{#unless cancelled}} {{> reservations/resmodal-block}} {{/unless}} {{/each}}
