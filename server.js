@@ -24,4 +24,5 @@ app.use("/", routes);
 // Starts the server to begin listening
 // =============================================================
 app.listen(process.env.PORT || 3000, function() {
+    console.log('listening on 3000')
 });
