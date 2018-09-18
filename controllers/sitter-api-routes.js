@@ -1,11 +1,27 @@
+
+
+
+
+//  THIS IS THE CODE IMPORTED FROM THE PREVIOUS FILE NAMED CONTROLLERS.JS
+
+
+
+
+
 var express = require("express");
 var router = express.Router();
+var passport = require('passport-local');
+var session = require('express-session');
+
 
 var model = require("../models/index.js");
 
 //Create all routes
 
 router.get("/api/", function(req, res) {
+console.log(req.body);
+res.end('hi');
+
     model.all(function(data) {
         var modelObject = {
             tableName: data
