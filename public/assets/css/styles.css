@@ -1,3 +1,104 @@
+<<<<<<< HEAD
 .splash{
     margin-top: 4rem;
+=======
+.splash {
+    margin-top: 10rem;
+}
+
+h1 {
+    font-family: 'Fredoka One', cursive;
+    color: #87CDFF;
+}
+
+h3 {
+    font-family: 'Open Sans', sans-serif;
+}
+.navbar{
+    background: #0F4369
+}
+.nav-link{
+    color: #87CDFF!important;
+}
+/*All styles pertaining to the modal and its contents*/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(255, 255, 255, 0.5);
+    margin-top: 5rem;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 25% auto;
+    margin-top: 70px;
+    padding: 20px;
+    border-color: rgb(32, 119, 100);
+    width: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.modaltext {
+    color: rgb(32, 119, 100);
+    text-shadow: none;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.close {
+    text-align: right;
+    color: rgb(223, 137, 137);
+    opacity: 1;
+    text-shadow: none;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: -15px;
+    margin-right: -10px;
+}
+
+.close:hover, .close:focus {
+    color: rgb(223, 137, 137);
+    opacity: 0.5;
+    text-decoration: none;
+    cursor: pointer;
+}
+#searchmodal{
+    display: block;
+}
+.placard{
+    border: 1px solid #0F4369;
+    border-radius: 4.8px;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+a:hover{
+    text-decoration: none;
+}
+.icon{
+    float: none;
+}
+.sitterlist{
+ display: none;
+}
+.resrow{
+    border: 1px solid #0F4369;
+    border-radius: 4.8px;
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+}
+.datecol{
+    background-color: #0F4369;
+    color: white;
+>>>>>>> 20f678e52dd7650022966e6541ffd66c3c7ccea4
 }
