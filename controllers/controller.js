@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 
-var model = require("../models/model.js");
+var model = require("../models/index.js");
 
 //Create all routes
 

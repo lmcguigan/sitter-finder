@@ -19,12 +19,11 @@ app.use(express.static("public"));
 // =============================================================
 var apiRoutes = require("./controllers/controller.js");
 var htmlRoutes = require("./controllers/htmlRoutes.js");
-
-
 app.use(apiRoutes);
 app.use(htmlRoutes);
 
 // Starts the server to begin listening
 // =============================================================
 app.listen(process.env.PORT || 3000, function() {
+    console.log('listening on 3000')
 });
