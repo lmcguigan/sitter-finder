@@ -5,7 +5,7 @@ var model = require("../models/index.js");
 
 //Create all routes
 
-router.get("/s", function(req, res) {
+router.get("/api/", function(req, res) {
     model.all(function(data) {
         var modelObject = {
             tableName: data
@@ -14,7 +14,7 @@ router.get("/s", function(req, res) {
     });
 });
 
-router.post("/search", function(req, res) {
+router.post("/api/", function(req, res) {
     model.create([
         "zip_code", "service_selection", "time_required"
     ], [
