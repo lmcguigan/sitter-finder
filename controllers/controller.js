@@ -1,11 +1,11 @@
 var express = require("express");
 var router = express.Router();
 
-var model = require("../models/model.js");
+var model = require("../models/index.js");
 
 //Create all routes
 
-router.get("/", function(req, res) {
+router.get("/s", function(req, res) {
     model.all(function(data) {
         var modelObject = {
             tableName: data
