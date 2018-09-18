@@ -4,6 +4,9 @@ $(".close").click(function () {
 $("#barloginbtn").click(function(){
     $("#loginmodal").css("display", "block");
 });
+$("#barregisterbtn").click(function(){
+    $("#registermodal").css("display", "block");
+}); 
 $(".searchclose").click(function () {
     $(".sitterlist").css("display", "block");
 });
