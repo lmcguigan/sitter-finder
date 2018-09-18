@@ -2,6 +2,7 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 
+var PORT = process.env.PORT || 3000;
 // =============================================================
 var app = express();
 
@@ -16,11 +17,14 @@ app.use(express.static("public"));
 
 // Routes
 // =============================================================
-var routes = require("./controllers/htmlRoutes.js");
+var apiRoutes = require("./controllers/controller.js");
+var htmlRoutes = require("./controllers/htmlRoutes.js");
 
-app.use(routes);
+
+app.use(apiRoutes);
+app.use(htmlRoutes);
 
 // Starts the server to begin listening
 // =============================================================
-app.listen(process.env.PORT || 5000, function() {
+app.listen(process.env.PORT || 3000, function() {
 });
