@@ -17,9 +17,15 @@ app.use(express.static("public"));
 
 // Routes
 // =============================================================
-var apiRoutes = require("./controllers/controller.js");
+var apiCustomers = require("./controllers/apiCustomers.js");
+var apiReservations = require("./controllers/apiReservations.js");
+var apiSitters = require("./controllers/apiSitters.js");
+var apiLogin = require("./controllers/apiLogin.js");
 var htmlRoutes = require("./controllers/htmlRoutes.js");
-app.use(apiRoutes);
+app.use(apiCustomers);
+app.use(apiReservations);
+app.use(apiSitters);
+app.use(apiLogin);
 app.use(htmlRoutes);
 
 // Starts the server to begin listening
