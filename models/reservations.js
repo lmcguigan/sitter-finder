@@ -1,14 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const reservation = sequelize.define('reservation', {
+  const reservations = sequelize.define('reservations', {
     date: DataTypes.DATE,
     customer_id: DataTypes.INTEGER,
     sitter_id: DataTypes.INTEGER,
     pet_id: DataTypes.INTEGER,
     service: DataTypes.STRING
   }, {});
-  reservation.associate = function(models) {
+  reservations.associate = function(models) {
     // associations can be defined here
   };
-  return reservation;
+  return reservations;
 };
