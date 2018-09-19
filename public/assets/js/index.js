@@ -6,7 +6,9 @@ $("#barloginbtn").click(function(){
 });
 $("#barregisterbtn").click(function(){
     $("#registermodal").css("display", "block");
-    $('#submitregisterbtn').on('click', authenticateUser);
+    $('#submitregisterbtn').on('click', function() {
+        console.log('just clicked me')
+    });
     
 }); 
 $(".searchclose").click(function () {
