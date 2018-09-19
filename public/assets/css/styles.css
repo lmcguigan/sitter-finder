@@ -1,22 +1,47 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+#colorbg {
+    background-color: #52D7D9;
+    height: 100vh;
+}
+
 .splash {
-    margin-top: 10rem;
+    background-color: #52D7D9;
+    padding-top: 10rem;
+}
+
+.frame {
+    border-radius: 2rem;
+    background-color: whitesmoke;
+    padding: 2rem;
+    width: 70%;
 }
 
 h1 {
     font-family: 'Fredoka One', cursive;
-    color: #87CDFF;
+    color: white
 }
 
 h3 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    color: #0F4369;
+    margin: 1.5rem 0 1.5rem;
+    font-size: 1.5rem;
 }
-.navbar{
-    background: #0F4369
+
+.navbar {
+    background: #0F4369;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .5);
 }
-.nav-link{
-    color: #87CDFF!important;
+
+.nav-link {
+    color: #52D7D9!important;
 }
+
 /*All styles pertaining to the modal and its contents*/
+
 .modal {
     display: none;
     position: fixed;
@@ -43,6 +68,7 @@ h3 {
 }
 
 .modaltext {
+    font-family: 'Quicksand', sans-serif;
     color: rgb(32, 119, 100);
     text-shadow: none;
     font-size: 20px;
@@ -66,38 +92,88 @@ h3 {
     text-decoration: none;
     cursor: pointer;
 }
-#searchmodal{
+
+#searchmodal {
     display: block;
 }
-.placard{
-    border: 1px solid #0F4369;
+
+.placard {
+    border: 1px solid #0f4369;
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 4.8px;
-    display: flex;
     justify-content: center;
+    text-align: center;
     padding: 1rem;
     margin-top: 2rem;
 }
-a:hover{
+
+a {
+    font-family: 'Quicksand', sans-serif;
+    color: #0F4369;
+}
+
+a:hover {
     text-decoration: none;
 }
-.icon{
+
+.icon {
     float: none;
 }
-.sitterlist{
- display: none;
+
+.sitterlist {
+    display: none;
 }
-.resrow{
+
+.resrow {
     border: 1px solid #0F4369;
     border-radius: 4.8px;
     display: flex;
     align-items: center;
     margin-top: 2rem;
 }
-.datecol{
+
+.datecol {
     background-color: #0F4369;
     color: white;
 }
 
 #registermodal {
     display: none;
+}
+
+#barregisterbtn {
+    margin-left: 15px;
+}
+#barloginbtn{
+    margin-left: 10px;
+}
+
+.btn-pink {
+    color: white;
+    background-image: -webkit-linear-gradient(top, #FC7297, #FF4778);
+    background-image: -moz-linear-gradient(top, #FC7297, #FF4778);
+    background-image: -ms-linear-gradient(top, #FC7297, #FF4778);
+    background-image: -o-linear-gradient(top, #FC7297, #FF4778);
+    background-image: linear-gradient(top, #FC7297, #FF4778);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 2px 0 #DE3361, 0 4px 2px rgba(0, 0, 0, .5);
+}
+
+.btn-purple {
+    color: white;
+    background-image: -webkit-linear-gradient(top, #B894D9, #794BA3);
+    background-image: -moz-linear-gradient(top, #B894D9, #794BA3);
+    background-image: -ms-linear-gradient(top, #B894D9, #794BA3);
+    background-image: -o-linear-gradient(top, #B894D9, #794BA3);
+    background-image: linear-gradient(top, #B894D9, #794BA3);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 2px 0 #63338F, 0 4px 2px rgba(0, 0, 0, .5);
+}
+
+@media screen and (max-width: 768px) {
+    #barregisterbtn {
+        margin-left: 0;
+    }
+    .auth-btn {
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+    }
 }
