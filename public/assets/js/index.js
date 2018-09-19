@@ -1,48 +1,73 @@
-$(".close").click(function () {
-    $(this).parents(".modal").css("display", "none");
-});
-$("#barloginbtn").click(function(){
-    $("#loginmodal").css("display", "block");
-});
-$("#barregisterbtn").click(function(){
-    $("#registermodal").css("display", "block");
-    $('#submitregisterbtn').on('click', function() {
-        console.log('just clicked me')
+$(document).ready(function() {
+    $(".close").click(function () {
+        $(this).parents(".modal").css("display", "none");
+    });
+     
+    $(".searchclose").click(function () {
+        $(".sitterlist").css("display", "block");
     });
     
-}); 
-$(".searchclose").click(function () {
-    $(".sitterlist").css("display", "block");
-});
-$(".submitsearch").click(function () {
-    $(".sitterlist").css("display", "block");
-});
-
-
-function authenticateUser(event) {
- event.preventDefault();
-//  var email = $('#emailregister').val().trim();
-//  var pwd = $('#pwregister').val().trim();
-//  console.log('email ' + email + 'pwd ' + pwd);
- var user = {
-     name: $('#nameregister').val().trim(),
-     zipcode: $('#zipcoderegister').val().trim(),
-     email: $('#emailregister').val().trim(),
-     password: $('#passwordregister').val().trim(),
-     phone: $('#phoneregister').val().trim(),
-     address: $('#addressregister').val().trim(),
-     
- }
- console.log('inside auth fct')
-//  $.post('/api/customer', user, getCustomer);
-}
-
-function getCustomer() {
-    $.get("/api/customer", function(data) {
-        var customer = [];
-        customer = data;
-    //   todos = data;
-    //   initializeRows();
-    console.log(customer);
+    //Search btn click fct
+    //
+    $(".submitsearch").click(function () {
+        $(".sitterlist").css("display", "block");
     });
-  }
+    
+    //Register btn click fct
+    //
+    $("#barregisterbtn").click(function(){
+        $("#registermodal").css("display", "block");
+        $('#submitregisterbtn').on('click', createNewCustomer);
+        
+    });
+    function createNewCustomer(event) {
+     event.preventDefault();
+     var customer = {
+         name: $('#nameregister').val(),
+         zipcode: $('#zipcoderegister').val(),
+         email: $('#emailregister').val(),
+         password: $('#passwordregister').val(),
+         phone: $('#phoneregister').val(),
+         address: $('#addressregister').val()    
+     }
+    console.log('before post')
+    $.post('/api/customers', customer, function() {
+        console.log('inside post');
+        getCustomer();
+
+    });
+    $('#nameregister').val('');
+    $('#zipcoderegister').val('');
+    $('#emailregister').val('');
+    $('#passwordregister').val('');
+    $('#phoneregister').val('');
+    $('#addressregister').val('');
+    }
+    
+    
+    
+      //Login btn click fct
+      //
+      $("#barloginbtn").click(function(){
+        $("#loginmodal").css("display", "block");
+        $('#submitloginbtn').on('click', authenticateCustomer);
+    
+    }); 
+    
+    function authenticateCustomer(event) {
+        event.preventDefault();
+        var email = $('#emailinput').val().trim();
+        var password = $('#pwinput').val().trim();
+        console.log('email' + email + '  ' + password)
+      
+
+    }
+    function getCustomer() {
+        $.get("/api/customers", function(data) {
+            var customer = [];
+            customer = data;
+        console.log(customer);
+        });
+      }
+
+})

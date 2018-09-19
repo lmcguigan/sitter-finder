@@ -1,7 +1,8 @@
 var express = require("express");
 var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
-
+var passport = require('passport-local');
+var session = require('express-session');
 
 var PORT = process.env.PORT || 3000;
 // =============================================================
@@ -22,16 +23,22 @@ var db = require("./models");
 
 // Routes
 // =============================================================
-var customerRoutes = require("./controllers/customer-api-routes.js");
-//var sitterRoutes = require("./controllers/sitter-api-routes.js");
 var htmlRoutes = require("./controllers/html-routes");
-app.use(customerRoutes);
+var customerRoutes = require("./controllers/customers-api-routes");
+var sitterRoutes = require("./controllers/sitters-api-routes");
+var registrationRoutes = require("./controllers/sitters-api-routes");
+
 app.use(htmlRoutes);
-//app.use(sitterRoutes);
+app.use(customerRoutes);
+app.use(sitterRoutes);
+app.use(registrationRoutes);
+
+
+
 
 // Starts the server to begin listening
 // =============================================================
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {
       console.log("App listening on PORT " + PORT);
     });
