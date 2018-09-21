@@ -11,7 +11,9 @@ body {
     background-color: #52D7D9;
     padding-top: 10rem;
 }
-
+.top{
+    padding-top: 7rem;
+}
 .frame {
     border-radius: 2rem;
     background-color: whitesmoke;
@@ -35,7 +37,10 @@ h3 {
     margin: 1.5rem 0 1.5rem;
     font-size: 1.5rem;
 }
-
+h4{
+    font-size: 1rem;
+    color: white;
+}
 .navbar {
     background: #0F4369;
     box-shadow: 0 4px 10px rgba(0, 0, 0, .5);
@@ -70,7 +75,7 @@ h3 {
     margin: 25% auto;
     margin-top: 70px;
     padding: 20px;
-    border-color: #0F4369;
+    border: none;
     width: 50%;
     text-align: center;
     display: flex;
@@ -79,7 +84,7 @@ h3 {
 
 .modaltext {
     font-family: 'Quicksand', sans-serif;
-    color: #0F4369;
+    color: hsl(205, 75%, 24%);
     text-shadow: none;
     font-size: 20px;
     margin-bottom: 10px;
@@ -106,10 +111,18 @@ h3 {
 #searchmodal {
     display: block;
 }
-
+.card{
+    border: none;
+}
 .placard {
-    border: 1px solid #0f4369;
     background: #52D7D9;
+    background-image: -webkit-linear-gradient(top, hsl(181, 64%, 59%), hsl(181, 73%, 43%));
+    background-image: -moz-linear-gradient(top, hsl(181, 64%, 59%), hsl(181, 73%, 43%));
+    background-image: -ms-linear-gradient(top, hsl(181, 64%, 59%), hsl(181, 73%, 43%));
+    background-image: -o-linear-gradient(top, hsl(181, 64%, 59%), hsl(181, 73%, 43%));
+    background-image: linear-gradient(top, hsl(181, 64%, 59%), hsl(181, 73%, 43%));
+    color: white;
+    font-weight: bolder;
     border-radius: 4.8px;
     justify-content: center;
     text-align: center;
@@ -136,10 +149,11 @@ a:hover {
 
 .resrow {
     border: 1px solid #0F4369;
+    background: whitesmoke;
     border-radius: 4.8px;
     display: flex;
     align-items: center;
-    margin-top: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .datecol {
@@ -186,6 +200,15 @@ a:hover {
     background-image: -o-linear-gradient(top, #B894D9, #794BA3);
     background-image: linear-gradient(top, #B894D9, #794BA3);
     color: white;
+}
+
+.btn-pink-flat{
+    color: white;
+    background-image: -webkit-linear-gradient(top, #FC7297, #FF4778);
+    background-image: -moz-linear-gradient(top, #FC7297, #FF4778);
+    background-image: -ms-linear-gradient(top, #FC7297, #FF4778);
+    background-image: -o-linear-gradient(top, #FC7297, #FF4778);
+    background-image: linear-gradient(top, #FC7297, #FF4778);
 }
 @media screen and (max-width: 768px) {
     #barregisterbtn {
