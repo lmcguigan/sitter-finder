@@ -19,10 +19,10 @@ var db = require("../models");
 //Create all routes
 
 router.get("/api/sitters", function (req, res) {
-    console.log(req.body);
+    console.log(req.body.location);
     db.sitters.findAll({
         where: {
-          daysavailable: req.body.dayneeded
+          location: req.body.location
         }
       }).then(function (results) {
         var handlebarsObject = {
@@ -35,35 +35,14 @@ router.get("/api/sitters", function (req, res) {
 });
 
 router.post("/api/reservations", function (req, res) {
-    model.create([
+    db.reservations.create([
         "zip_code", "service_selection", "time_required"
     ], [
             req.body.zip_code, req.body.service_selection, req.body.time_required
         ],
         function () {
-            res.redirect("/");
+            res.redirect("/manage");
         }
     )
 });
-
-router.put("/manage/:id", function (req, res) {
-    var updateReservation = "id = " + req.params.id;
-
-    model.update({
-        zip_code: req.body.zip_code,
-        service_selection: req.body.service_selection,
-        time_required: req.body.time_required
-    }, updateReservation, function () {
-        res.redirect("/");
-    });
-});
-
-router.delete("/manage/delete/:id", function (req, res) {
-    var deleteReservation = "id = " + req.params.id;
-
-    model.delete(deleteReservation, function () {
-        res.redirect("/");
-    });
-});
-
 module.exports = router;
