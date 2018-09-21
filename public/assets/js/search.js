@@ -8,6 +8,7 @@ $(document).ready(function() {
         var newSitterRequest = {
             service: $("#serviceselection").val(),
             location: $("#zipcodeinput").val(),
+            dayneeded: $("#dayneeededinput").val(),
             startdate: $("#startdateinput").val(),
             enddate: $("#enddateinput").val()
         };

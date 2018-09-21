@@ -20,7 +20,11 @@ var db = require("../models");
 
 router.get("/api/sitters", function (req, res) {
     console.log(req.body);
-    db.sitters.findAll({}).then(function (results) {
+    db.sitters.findAll({
+        where: {
+          daysavailable: req.body.dayneeded
+        }
+      }).then(function (results) {
         var handlebarsObject = {
             sitters: data
         };
