@@ -23,7 +23,8 @@ h1 {
     font-family: 'Fredoka One', cursive;
     color: white
 }
-h2{
+
+h2 {
     font-family: 'Fredoka One', cursive;
     color: #0F4369;
 }
@@ -41,6 +42,11 @@ h3 {
 }
 
 .nav-link {
+    color: #52D7D9!important;
+}
+
+#signedinas {
+    display: none;
     color: #52D7D9!important;
 }
 
@@ -64,7 +70,7 @@ h3 {
     margin: 25% auto;
     margin-top: 70px;
     padding: 20px;
-    border-color: rgb(32, 119, 100);
+    border-color: #0F4369;
     width: 50%;
     text-align: center;
     display: flex;
@@ -73,7 +79,7 @@ h3 {
 
 .modaltext {
     font-family: 'Quicksand', sans-serif;
-    color: rgb(32, 119, 100);
+    color: #0F4369;
     text-shadow: none;
     font-size: 20px;
     margin-bottom: 10px;
@@ -81,7 +87,7 @@ h3 {
 
 .close {
     text-align: right;
-    color: rgb(223, 137, 137);
+    color: #FF4778;
     opacity: 1;
     text-shadow: none;
     font-size: 28px;
@@ -91,7 +97,7 @@ h3 {
 }
 
 .close:hover, .close:focus {
-    color: rgb(223, 137, 137);
+    color: #FF4778;
     opacity: 0.5;
     text-decoration: none;
     cursor: pointer;
@@ -148,7 +154,8 @@ a:hover {
 #barregisterbtn {
     margin-left: 15px;
 }
-#barloginbtn{
+
+#barloginbtn {
     margin-left: 10px;
 }
 
@@ -172,6 +179,14 @@ a:hover {
     box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 2px 0 #63338F, 0 4px 2px rgba(0, 0, 0, .5);
 }
 
+.btn-purple-flat{
+    background-image: -webkit-linear-gradient(top, #B894D9, #794BA3);
+    background-image: -moz-linear-gradient(top, #B894D9, #794BA3);
+    background-image: -ms-linear-gradient(top, #B894D9, #794BA3);
+    background-image: -o-linear-gradient(top, #B894D9, #794BA3);
+    background-image: linear-gradient(top, #B894D9, #794BA3);
+    color: white;
+}
 @media screen and (max-width: 768px) {
     #barregisterbtn {
         margin-left: 0;
