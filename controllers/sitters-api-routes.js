@@ -36,9 +36,9 @@ router.get("/api/sitters", function (req, res) {
 
 router.post("/api/reservations", function (req, res) {
     db.reservations.create([
-        "zip_code", "service_selection", "time_required"
+        "date", "customer_id", "sitter_id", "service"
     ], [
-            req.body.zip_code, req.body.service_selection, req.body.time_required
+            req.body.date, req.body.customer_id, req.body.sitter_id, req.body.service
         ],
         function () {
             res.redirect("/manage");

@@ -2,15 +2,16 @@
 
 // TO BE FINISHED
 $(document).ready(function() {
+    //until we figure out how to have user data persist
+    var customerDummy = "123";
     $("#submitsearch").on("submit", function(event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
         var newSitterRequest = {
+            customer_id: customerDummy,
             service: $("#serviceselection").val(),
             location: $("#zipcodeinput").val(),
-            dayneeded: $("#dayneeededinput").val(),
-            startdate: $("#startdateinput").val(),
-            enddate: $("#enddateinput").val()
+            date: $("#dateinput").val(),
         };
         console.log(newSitterRequest);
         // Send the POST request.
@@ -20,6 +21,20 @@ $(document).ready(function() {
                 console.log(data);
                 // Reload the page to get the updated list
                 location.reload();
+                $(".book-btn").on("click", function(event) {
+                    var sitter = $(this).data("id");
+                    var newResRequest = {
+                        customer_id: newSitterRequest.customer_id,
+                        sitter_id: sitter,
+                        service: newSitterRequest.service,
+                        location: newSitterRequest.location,
+                        date: newSitterRequest.date,
+                    }
+                    $.post("/api/reservations", newResRequest)
+                        .then(function(data) {
+                            console.log(data);
+                    });
+                });
             });
     });
 });

@@ -59,31 +59,13 @@
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-12">
-                    <label for="serviceselection">What day of the week do you need this service for?</label>
-                    <select class="form-control" id="dayneededinput">
-                        <option>Monday</option>
-                        <option>Tuesday</option>
-                        <option>Wednesday</option>
-                        <option>Thursday</option>
-                        <option>Friday</option>
-                    </select>
+                <div class="form-group col-6">
+                    <label for="startdateinput">What date do you need this service?</label>
+                    <input type="date" class="form-control" id="dateinput">
                 </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-12">
+                <div class="form-group col-6">
                     <label for="zipcodeinput">What is your zipcode?</label>
                     <input type="text" class="form-control" id="zipcodeinput" placeholder="Enter zip code.">
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-6">
-                    <label for="startdateinput">When do you need the service to start?</label>
-                    <input type="date" class="form-control" id="startdateinput">
-                </div>
-                <div class="form-group col-6">
-                    <label for="startdateinput">When will you no longer need the service?</label>
-                    <input type="date" class="form-control" id="enddateinput">
                 </div>
             </div>
             <button type="submit" class="btn btn-purple-flat" id="submitsearch">Submit</button>
