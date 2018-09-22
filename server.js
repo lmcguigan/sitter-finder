@@ -9,12 +9,7 @@ var cookieParser = require('cookie-parser');
 // db modules
 var db = require("./models");
 
-// Routes
-// =============================================================
-var htmlRoutes = require("./controllers/html-routes");
-var customerRoutes = require("./controllers/customers-api-routes");
-var sitterRoutes = require("./controllers/sitters-api-routes");
-var registrationRoutes = require("./controllers/sitters-api-routes");
+
 
 var PORT = process.env.PORT || 3000;
 // =============================================================
@@ -27,11 +22,6 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 app.use(express.static("public"));
-
-app.use(htmlRoutes);
-app.use(customerRoutes);
-app.use(sitterRoutes);
-app.use(registrationRoutes);
 
 // Authentication set up with Passport & Express-ssession
 //==============================================================
@@ -50,25 +40,41 @@ passport.use(new LocalStrategy({
   session: true
 },
   function(username, password, done) {
-    db.customers.findOne({ username: username }, function (err, customer) {
-      if (err) { return done(err); }
+    db.customers.findOne({ username: username }).then(function (customer) {
       if (!customer) { return done(null, false); }
-      if (!customer.verifyPassword(password)) { return done(null, false); }
-      return done(null, customer);
+      //if (!customer.verifyPassword(password)) { return done(null, false); }
+      return done(customer);
     });
   }
 ));
 
 passport.serializeUser(function(customer, done) {
-  done(null, customer.id);
+  //console.log(customer);
+  done(null, customer);
 });
  
-passport.deserializeUser(function(id, done) {
-  db.customers.findById({where: {id: id}}, function (err, customer) {
+passport.deserializeUser(function(user, done) {
+  // done(null, user)
+  //console.log(user);
+  db.customers.findOne({where: {id: user.id}}).then(function (customer) {
       //%%%%//customer or customer.id
-    done(err, customer);
+      //console.log(customer);
+
+    done(null, customer);
   });
 });
+
+// Routes
+// =============================================================
+var htmlRoutes = require("./controllers/html-routes");
+var customerRoutes = require("./controllers/customers-api-routes");
+var sitterRoutes = require("./controllers/sitters-api-routes");
+var registrationRoutes = require("./controllers/sitters-api-routes");
+
+app.use(htmlRoutes);
+app.use(customerRoutes);
+app.use(sitterRoutes);
+app.use(registrationRoutes);
 
 //Set up for passport-local-sequelize
 //==============================================================
@@ -79,19 +85,8 @@ passport.deserializeUser(function(id, done) {
 
 // Starts the server to begin listening
 // =============================================================
-<<<<<<< HEAD
-db.sequelize.sync({ force: true }).then(function() {
-    app.listen(PORT, function() {
-      console.log("App listening on PORT " + PORT);
-    });
-  });
-
-
-  //==============================================================
-=======
 db.sequelize.sync({ force: false }).then(function () {
   app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
   });
 });
->>>>>>> 2631fcb6675aaa03402e8089c116bb03ba3dd31f

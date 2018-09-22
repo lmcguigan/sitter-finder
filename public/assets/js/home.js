@@ -58,10 +58,22 @@ $(document).ready(function () {
 
     function authenticateCustomer(event) {
         event.preventDefault();
-        var email = $('#emailinput').val().trim();
-        var password = $('#pwinput').val().trim();
-        console.log('email' + email + '  ' + password)
+        var credentials = {
+            email:$('#emailinput').val().trim(),
+            password:$('#pwinput').val().trim()
+        }
+        // var email = $('#emailinput').val().trim();
+        // var password = $('#pwinput').val().trim();
+        // console.log('email' + email + '  ' + password)
+        $.post('/api/customers/login', credentials, function () {
+            console.log('inside post' + credentials.email);
+           getCustomer();
 
+        });
+        $('#emailinput').val('');
+       $('#pwinput').val('');
+       $("#loginmodal").hide();
+       $("#barloginbtn").text('log out');
 
     }
     function getCustomer() {

@@ -17,6 +17,66 @@ passport.use(new LocalStrategy({
       });
     }
   ));
+
+  passport.use('local-register', new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password',
+    session: true
+  },
+    function(username, password, done) {
+    //console.log("Hit passport")
+      db.customers.findOne({ where: {name: username} }).then(function (customer) {
+          //console.log("Returned something");
+        //   //console.log(customer);
+        // if (err) { 
+        //     //console.log("Had an error!");
+        //     //console.log(err);
+        //     return done(err); }
+        if (!customer) {
+            //console.log("No customer")
+            return done(null, false); 
+        }
+        // if (!customer.verifyPassword(password)) { 
+        //     //console.log("Bad password")
+        //     return done(null, false); 
+        // }
+        ////console.log("Returning customer");
+        return done(null, customer);
+      });
+    }
+  ));
+
+
+  passport.use('local-login', new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password',
+    session: true
+  },
+    function(username, password, done) {
+    //console.log("Hit passport")
+      db.customers.find({ where: {email: username, password: password} }).then(function (customer) {
+          ////console.log("Returned something");
+        //   //console.log(customer);
+        // if (err) { 
+        //     //console.log("Had an error!");
+        //     //console.log(err);
+        //     return done(err); }
+        if (!customer) {
+            //console.log("No customer")
+            return done(null, false); 
+        }
+        // if (!customer.verifyPassword(password)) { 
+        //     //console.log("Bad password")
+        //     return done(null, false); 
+        // }
+        //console.log("Returning customer");
+        return done(null, customer);
+      });
+    }
+  ));
+  
+
+
   
   passport.serializeUser(function(customer, done) {
     done(null, customer.id);
@@ -30,10 +90,10 @@ passport.use(new LocalStrategy({
     });
   });
 
-
     router.post('/api/customers', 
     passport.authenticate('local-register'), 
     function(req, res) {
+        ////console.log("Hitting register route")
         db.customers.create({
             name: req.body.name,
             zipcode: req.body.zipcode,
@@ -46,6 +106,19 @@ passport.use(new LocalStrategy({
             res.redirect('/');
         });
     });
+
+
+//login authenticate
+router.post('/api/customers/login', 
+passport.authenticate('local-login'), function(req, res) {
+    //console.log("Hitting login route")
+    res.redirect('/');
+    // db.customers.findAll({where: {
+    //     email: req.body.email,
+    //     password: req.body.passport}}).then(function() {
+    //         res.redirect('/');
+    //     });  
+});
 
   
     router.get('/api/customers', function(req, res) {
@@ -62,15 +135,7 @@ passport.use(new LocalStrategy({
             res.json(result);
         });
     });
-//login authenticate
-    router.post('/api/customers', passport.authenticate('local-login', {
-        failureRedirect: '/',   //should redirect to modal --how to translate it???
-        successRedirect: '/'    //should redirect to home page
 
-    }), function(req, res) {
-        console.log('success');
-        res.redirect('/')
-    });
 
     
     module.exports = router;

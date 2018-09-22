@@ -6,6 +6,10 @@ router.get("/", function (req, res) {
     res.render("index");
 });
 router.get("/search", function (req, res) {
+    console.log(req.user)
+    console.log('==================================')
+    console.log(req.user.id);
+    console.log('==================================')
     res.render("search");
 });
 router.get("/manage", function (req, res) {
