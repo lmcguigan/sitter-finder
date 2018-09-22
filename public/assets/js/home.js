@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    var loggedin = false;
+    
     $(".close").click(function () {
         $(this).parents(".modal").css("display", "none");
     });
@@ -16,8 +18,10 @@ $(document).ready(function () {
     //Register btn click fct
     //
     $("#barregisterbtn").click(function () {
-        $("#registermodal").css("display", "block");
-        $('#submitregisterbtn').on('click', createNewCustomer);
+        if (loggedin === false) {
+            $("#registermodal").css("display", "block");
+            $('#submitregisterbtn').on('click', createNewCustomer);
+        }
         
 
     });
@@ -35,6 +39,14 @@ $(document).ready(function () {
         $.post('/api/customers', customer, function () {
             console.log('inside post');
             getCustomer();
+            loggedin = true;
+            $("#registermodal").css("display", "none");
+            console.log(loggedin);
+            console.log("refreshing bar");
+            $("#barloginbtn").text("log out");
+            $("#signedinas").text("signed in as: " + customer.email);
+            $("#signedinas").css("display", "flex");
+            $("#barregisterbtn").css("display", "none");
 
         });
         $('#nameregister').val('');
@@ -51,10 +63,18 @@ $(document).ready(function () {
     //Login btn click fct
     //
     $("#barloginbtn").click(function () {
-        $("#loginmodal").css("display", "block");
-        $('#submitloginbtn').on('click', authenticateCustomer);
-
+        if (loggedin === false) {
+            $("#loginmodal").css("display", "block");
+            $('#submitloginbtn').on('click', authenticateCustomer);
+        }
+        else {
+            //need code here to log user out
+            $("#barloginbtn").text("log in");
+        }
     });
+
+
+
 
     function authenticateCustomer(event) {
         event.preventDefault();
@@ -74,6 +94,11 @@ $(document).ready(function () {
        $('#pwinput').val('');
        $("#loginmodal").hide();
        $("#barloginbtn").text('log out');
+       console.log('email' + email + '  ' + password)
+       $("#loginmodal").css("display", "none");
+       $("#signedinas").text("Signed in as: " + email);
+       $("#signedinas").css("display", "flex");
+       $("#barregisterbtn").css("display", "none");
 
     }
     function getCustomer() {
