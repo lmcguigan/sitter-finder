@@ -66,7 +66,7 @@ $(document).ready(function () {
         $("#loginmodal").css("display", "none");
         $("#barloginbtn").text("log out");
         $("#signedinas").text("Signed in as: " + email);
-        $("#signedinas").ss("display", "block");
+        $("#signedinas").css("display", "flex");
         $("#barregisterbtn").css("display", "none");
     }
     function getCustomer() {
