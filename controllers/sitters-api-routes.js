@@ -18,7 +18,7 @@ router.post("/api/sitters", function (req, res) {
         var handlebarsObject = {
             sitters: results
         };
-        return res.render("sitters", handlebarsObject)
+        res.json(handlebarsObject);
     });
 });
 
