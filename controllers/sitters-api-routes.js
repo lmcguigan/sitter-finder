@@ -14,52 +14,35 @@ var passport = require('passport-local');
 var session = require('express-session');
 
 
-var model = require("../models/index.js");
+var db = require("../models");
 
 //Create all routes
 
-router.get("/api/", function(req, res) {
-console.log(req.body);
-res.end('hi');
-
-    model.all(function(data) {
-        var modelObject = {
-            tableName: data
+router.get("/api/sitters", function (req, res) {
+    console.log(req.body.location);
+    db.sitters.findAll({
+        where: {
+          location: req.body.location
+        }
+      }).then(function (results) {
+        var handlebarsObject = {
+            sitters: data
         };
-        res.render("index", modelObject);
+        res.render("search", handlebarsObject)
+        console.log(results);
+        return res.json(results);
     });
 });
 
-router.post("/api/", function(req, res) {
-    model.create([
-        "zip_code", "service_selection", "time_required"
+router.post("/api/reservations", function (req, res) {
+    db.reservations.create([
+        "date", "customer_id", "sitter_id", "service"
     ], [
-        req.body.zip_code, req.body.service_selection, req.body.time_required
-    ],
-    function() {
-        res.redirect("/");
-    }
-)
+            req.body.date, req.body.customer_id, req.body.sitter_id, req.body.service
+        ],
+        function () {
+            res.redirect("/manage");
+        }
+    )
 });
-
-router.put("/manage/:id", function(req, res) {
-    var updateReservation = "id = " + req.params.id;
-
-    model.update({
-        zip_code: req.body.zip_code, 
-        service_selection: req.body.service_selection,
-        time_required: req.body.time_required
-    }, updateReservation, function() {
-        res.redirect("/");
-    });
-});
-
-router.delete("/manage/delete/:id", function(req, res) {
-    var deleteReservation = "id = " + req.params.id;
-
-    model.delete(deleteReservation, function () {
-        res.redirect("/");
-    });
-});
-
 module.exports = router;
