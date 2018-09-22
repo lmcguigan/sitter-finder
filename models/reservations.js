@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const reservations = sequelize.define('reservations', {
     date: DataTypes.DATE,
-    customer_id: DataTypes.INTEGER,
+    customerId: DataTypes.INTEGER,
     sitter_id: DataTypes.INTEGER,
     pet_id: DataTypes.INTEGER,
     service: DataTypes.STRING

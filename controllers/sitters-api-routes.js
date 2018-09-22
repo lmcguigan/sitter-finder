@@ -18,8 +18,10 @@ var db = require("../models");
 
 //Create all routes
 
-router.post("/api/sitters", function (req, res) {
-    db.sitters.findAll({
+router.get("/api/Sitters", function (req, res) {
+    console.log("Req.params");
+    console.log(req.params);
+    db.Sitters.findAll({
         where: {
           service: req.body.service,
           location: req.body.location
@@ -28,7 +30,7 @@ router.post("/api/sitters", function (req, res) {
           console.log("RESULTS===========");
           console.log(results);
         var handlebarsObject = {
-            sitters: results
+            Sitters: results
         };
         return res.render("search", handlebarsObject)
     });
@@ -36,9 +38,9 @@ router.post("/api/sitters", function (req, res) {
 
 router.post("/api/reservations", function (req, res) {
     db.reservations.create([
-        "date", "customer_id", "sitter_id", "service"
+        "date", "customer_id", "Sitter_id", "service"
     ], [
-            req.body.date, req.body.customer_id, req.body.sitter_id, req.body.service
+            req.body.date, req.body.customer_id, req.body.Sitter_id, req.body.service
         ],
         function () {
             res.redirect("/manage");

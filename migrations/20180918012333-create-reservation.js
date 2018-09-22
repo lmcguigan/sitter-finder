@@ -14,7 +14,7 @@ module.exports = {
       customer_id: {
         type: Sequelize.INTEGER
       },
-      sitter_id: {
+      Sitter_id: {
         type: Sequelize.INTEGER
       },
       pet_id: {

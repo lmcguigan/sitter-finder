@@ -22,14 +22,14 @@ $(document).ready(function() {
             data: {
                 id: putId,
                 task: taskText,
-                sitter: sitterText
-            }
+                sitter: sitterTexnode 
+                       }
         })
     });
 
     $(".delete-reservation").click(function () {
         alert("Reservation Deleted");
-        $(this).closest('row resrow').remove();
+        $(this).closest('.resrow').remove();
 
         var deleteId = $(this).data("id");
         
