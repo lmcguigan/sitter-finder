@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     address: DataTypes.STRING
      }, {});
   customers.associate = function(models) {
+    customers.hasMany(models.reservations)
     // associations can be defined here
   };
   return customers;
