@@ -23,10 +23,10 @@ var db = require("./models");
 
 // Routes
 // =============================================================
-var htmlRoutes = require("./controllers/html-routes.js");
-var customerRoutes = require("./controllers/customers-api-routes.js");
-var sitterRoutes = require("./controllers/sitters-api-routes.js");
-var registrationRoutes = require("./controllers/sitters-api-routes.js");
+var htmlRoutes = require("./controllers/html-routes");
+var customerRoutes = require("./controllers/customers-api-routes");
+var sitterRoutes = require("./controllers/sitters-api-routes");
+var registrationRoutes = require("./controllers/registrations-api-routes");
 
 app.use(htmlRoutes);
 app.use(customerRoutes);

@@ -1,23 +1,29 @@
+var express = require("express");
+var router = express.Router();
+var db = require("../models");
 
-router.put("/manage/:id", function (req, res) {
-    var updateReservation = "id = " + req.params.id;
+console.log("Running page")
 
-    model.update({
-        zip_code: req.body.zip_code,
-        service_selection: req.body.service_selection,
-        time_required: req.body.time_required
-    }, updateReservation, function () {
-        res.redirect("/");
-    });
-});
+router.delete('/api/delete', function(req, res){
+    console.log("Hit delete route");
+    db.reservations.destroy({
+        where: {
+            id: req.body.id
+        }
+    })
+})
 
-router.delete("/manage/delete/:id", function (req, res) {
-    var deleteReservation = "id = " + req.params.id;
+router.put('/api/update', function(req, res){
+    console.log("Hit update route");
+    db.reservations.update(
+        req.body,
+        {
+        where: {
+            id: req.body.id
+        }
+    })
+})
 
-    model.delete(deleteReservation, function () {
-        res.redirect("/");
-    });
-});
-
+module.exports = router;
 
 // TO BE FINISHED

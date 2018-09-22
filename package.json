@@ -23,7 +23,7 @@
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
-    "mysql2": "^1.6.1",
+    "mysql2": "file:node_modules/mysql2",
     "passport-local": "^1.0.0",
     "sequelize": "^4.38.1"
   }
