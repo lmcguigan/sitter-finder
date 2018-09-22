@@ -19,18 +19,19 @@ var db = require("../models");
 //Create all routes
 
 router.get("/api/sitters", function (req, res) {
-    console.log(req.body.location);
+    console.log("Req.params");
+    console.log(req.params);
     db.sitters.findAll({
         where: {
           location: req.body.location
         }
       }).then(function (results) {
+          console.log("results");
+          console.log(results);
         var handlebarsObject = {
-            sitters: data
+            sitters: results
         };
-        res.render("search", handlebarsObject)
-        console.log(results);
-        return res.json(results);
+        return res.render("search", handlebarsObject)
     });
 });
 
