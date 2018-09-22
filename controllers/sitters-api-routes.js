@@ -1,7 +1,3 @@
-
-
-
-
 //  THIS IS THE CODE IMPORTED FROM THE PREVIOUS FILE NAMED CONTROLLERS.JS
 
 
@@ -18,10 +14,8 @@ var db = require("../models");
 
 //Create all routes
 
-router.get("/api/Sitters", function (req, res) {
-    console.log("Req.params");
-    console.log(req.params);
-    db.Sitters.findAll({
+router.post("/api/sitters", function (req, res) {
+    db.sitters.findAll({
         where: {
           service: req.body.service,
           location: req.body.location
@@ -30,7 +24,7 @@ router.get("/api/Sitters", function (req, res) {
           console.log("RESULTS===========");
           console.log(results);
         var handlebarsObject = {
-            Sitters: results
+            sitters: results
         };
         return res.render("search", handlebarsObject)
     });
@@ -38,9 +32,9 @@ router.get("/api/Sitters", function (req, res) {
 
 router.post("/api/reservations", function (req, res) {
     db.reservations.create([
-        "date", "customer_id", "Sitter_id", "service"
+        "date", "customer_id", "sitter_id", "service"
     ], [
-            req.body.date, req.body.customer_id, req.body.Sitter_id, req.body.service
+            req.body.date, req.body.customer_id, req.body.sitter_id, req.body.service
         ],
         function () {
             res.redirect("/manage");
