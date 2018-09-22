@@ -11,6 +11,10 @@ router.delete('/api/delete', function(req, res){
             id: req.body.id
         }
     })
+    db.reservations.findAll({}).then(function(results){
+        //console.log(results);
+        res.render("manage", {reservations: results});
+    })
 })
 
 router.put('/api/update', function(req, res){

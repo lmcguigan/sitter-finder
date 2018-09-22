@@ -29,7 +29,7 @@ $(document).ready(function() {
 
     $(".delete-reservation").click(function () {
         alert("Reservation Deleted");
-        $(this).closest('row resrow').remove();
+        $(this).closest('.resrow').remove();
 
         var deleteId = $(this).data("id");
         
