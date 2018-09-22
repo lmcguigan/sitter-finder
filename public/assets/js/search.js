@@ -2,9 +2,13 @@
 
 // TO BE FINISHED
 $(document).ready(function() {
+    $(".searchclose").click(function () {
+        $(".sitterlist").css("display", "block");
+    });
     //until we figure out how to have user data persist
     var customerDummy = "123";
-    $("#submitsearch").on("submit", function(event) {
+    $("#submitsearchbtn").click(function(event) {
+
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
         var newSitterRequest = {
@@ -20,7 +24,8 @@ $(document).ready(function() {
                 $("#searchmodal").css("display", "none");
                 console.log(data);
                 // Reload the page to get the updated list
-                location.reload();
+                //location.reload();
+                $(".sitterlist").css("display", "block");
                 $(".book-btn").on("click", function(event) {
                     var sitter = $(this).data("id");
                     var newResRequest = {

@@ -52,7 +52,9 @@ h4{
 
 #signedinas {
     display: none;
-    color: #52D7D9!important;
+    color: white;
+    align-items: center;
+    margin-left: 2rem;
 }
 
 /*All styles pertaining to the modal and its contents*/
@@ -210,8 +212,11 @@ a:hover {
     background-image: -o-linear-gradient(top, #FC7297, #FF4778);
     background-image: linear-gradient(top, #FC7297, #FF4778);
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
     #barregisterbtn {
+        margin-left: 0;
+    }
+    #barloginbtn {
         margin-left: 0;
     }
     .auth-btn {
