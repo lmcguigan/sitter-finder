@@ -26,7 +26,7 @@ var db = require("./models");
 var htmlRoutes = require("./controllers/html-routes");
 var customerRoutes = require("./controllers/customers-api-routes");
 var sitterRoutes = require("./controllers/sitters-api-routes");
-var registrationRoutes = require("./controllers/sitters-api-routes");
+var registrationRoutes = require("./controllers/registrations-api-routes");
 
 app.use(htmlRoutes);
 app.use(customerRoutes);

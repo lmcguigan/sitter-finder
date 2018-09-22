@@ -5,7 +5,11 @@
                 <h3>My Reservations</h3>
                 <!-In handlebars, we will dynamically generate a new card for each match returned->
                 <!-These are just here to test the design and will be deleted when there is a database to reference with a handlebars partial->
-                {{#each reservations}} {{#unless cancelled}} {{> reservations/res-block}} {{/unless}} {{/each}}
+                {{#each reservations}}
+                    {{#unless cancelled}}
+                        {{> reservations/res-block}}
+                    {{/unless}}
+                {{/each}}
                 <div class="row resrow">
                     <div class="col-2 datecol">
                         03
@@ -19,7 +23,8 @@
                         Dog walking
                     </div>
                     <div class="col-3">
-                        <button class ="btn btn-info">Make Changes</button>
+                        <button class ="btn btn-info make-changes">Make Changes</button>
+                        <button class="end-change">end change</button>
                     </div>
                 </div>
                 <div class="row resrow">
@@ -35,7 +40,9 @@
                         Drop-in visit
                     </div>
                     <div class="col-3">
-                        <button class ="btn btn-info">Make Changes</button>
+                        <button class ="btn btn-info change_button">Make Changes</button>
+                         <button class="end-change">end change</button>
+                          <button class="delete-reservation">Delete Reservation</button>
                     </div>
                 </div>
             </div>
