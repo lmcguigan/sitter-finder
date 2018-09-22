@@ -38,8 +38,8 @@ app.use(registrationRoutes);
 
 // Starts the server to begin listening
 // =============================================================
-db.sequelize.sync({ force: false }).then(function() {
-    app.listen(PORT, function() {
-      console.log("App listening on PORT " + PORT);
-    });
+db.sequelize.sync({ force: false }).then(function () {
+  app.listen(PORT, function () {
+    console.log("App listening on PORT " + PORT);
   });
+});
