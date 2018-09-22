@@ -1,14 +1,16 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const sitters = sequelize.define('sitters', {
+  const Sitters = sequelize.define('sitters', {
     username: DataTypes.STRING,
     days_available: DataTypes.DATE,
+    photo_url: DataTypes.STRING,
+    location: DataTypes.INTEGER,
     phone: DataTypes.STRING,
     rating: DataTypes.INTEGER
   }, {});
-  sitters.associate = function(models) {
+  Sitters.associate = function(models) {
     // associations can be defined here
     sitters.hasMany(reservations)
   };
-  return sitters;
+  return Sitters;
 };
