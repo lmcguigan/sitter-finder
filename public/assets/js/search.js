@@ -20,7 +20,7 @@ $(document).ready(function() {
         console.log("New Sitter Request")
         console.log(newSitterRequest);
         // Send the POST request.
-        $.get("/api/sitters", newSitterRequest)
+        $.post("/api/sitters", newSitterRequest)
             .then(function(data) {
                 $("#searchmodal").css("display", "none");
                 console.log(data);

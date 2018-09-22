@@ -1,20 +1,15 @@
 <div class="row resrow">
     <div class="col-2 datecol">
         {{date}}
-        <br>
-        {{month}}
     </div>
     <div class="col-3">
         {{sittername}}
     </div>
-    <div class="col-3">
+    <div class="col-4">
         {{service}}
     </div>
-    <div class="col-3">
-        <button class="btn btn-info change_button" data-id="{{id}}">Make Changes</button>
-    </div>
-    <div class="col-1">
-        <button class="delete-reservation delete-btn" data-id="{{id}}">Delete Reservation</button>
+    <div class="col-3 d-flex justify-content-end">
+        <button class="btn btn-pink-flat delete-reservation delete-btn" data-id="{{id}}">Delete</button>
     </div>
 
 </div>
