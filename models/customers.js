@@ -8,15 +8,10 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     phone: DataTypes.STRING,
-    address: DataTypes.STRING,
-    number_of_pets:DataTypes.INTEGER
-  }, {});
-//   passportLocalSequelize.attachToCustomers(customers, {
-//     usernameField: 'nick',
-//     hashField: 'myhash',
-//     saltField: 'mysalt'
-// });
+    address: DataTypes.STRING
+     }, {});
   customers.associate = function(models) {
+    customers.hasMany(models.reservations)
     // associations can be defined here
   };
   return customers;

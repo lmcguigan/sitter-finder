@@ -35,6 +35,8 @@
 				<li class="nav-item">
 					<a class="nav-link" href="/manage">my reservations</a>
 				</li>
+				<li class="nav-item" id="signedinas">
+				</li>
 				<li class="nav-item">
 					<button class="btn btn-pink auth-btn" id="barloginbtn">log in</button>
 				</li>
@@ -58,49 +60,63 @@
 						<label for="pwinput">Password</label>
 						<input type="password" class="form-control" id="pwinput" placeholder="Password">
 					</div>
-					<button type="submit" class="btn btn-primary" id="submitloginbtn">Submit</button>
+					<button type="submit" class="btn btn-purple-flat" id="submitloginbtn">Submit</button>
 				</form>
 			</div>
 		</div>
 
-	<!--begin oana's code/update -->
-	<div id="registermodal" class="modal">
-		
-		<div class="modal-content">
-			<span class="close">&times;</span>
-			<h3>Register for the SitterFinder</h3>
-			<form>
-				<div class="form-group">
-					<label for="nameregister">Name</label>
-					<input type="text" class="form-control" id="nameregister" placeholder="Enter your name">
-				</div>
-				<div class="form-group">
-					<label for="phoneregister">Phone Number</label>
-					<input type="text" class="form-control" id="phoneregister" placeholder="Enter your phone number">
-				</div>
-				<div class="form-group">
-					<label for="addressregister">Address</label>
-					<input type="text" class="form-control" id="addressregister" placeholder="Enter your address">
-				</div>
-				<div class="form-group">
-					<label for="zipcoderegister">ZIP Code</label>
-					<input type="text" class="form-control" id="zipcoderegister" placeholder="Enter your ZIP Code">
-				</div>
-				<div class="form-group">
-					<label for="emailregister">Email address</label>
-					<input type="email" class="form-control" id="emailregister" placeholder="Enter email">
-				</div>
-				<div class="form-group">
-					<label for="pwregister">Password</label>
-					<input type="password" class="form-control" id="pwregister" placeholder="Password">
-				</div>
-				<button type="submit" class="btn btn-primary" id="submitregisterbtn">Submit</button>
-			</form>
-		</div>
-		<!--end oana's code/update -->
-		<div id="messagemodal" class="modal">
+		<!--begin oana's code/update -->
+		<div id="registermodal" class="modal">
+
 			<div class="modal-content">
 				<span class="close">&times;</span>
+				<h3>Register for the SitterFinder</h3>
+				<form>
+					<div class="row">
+						<div class="col-6">
+							<div class="form-group">
+								<label for="nameregister">Name</label>
+								<input type="text" class="form-control" id="nameregister" placeholder="Enter your name">
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="form-group">
+								<label for="phoneregister">Phone Number</label>
+								<input type="text" class="form-control" id="phoneregister" placeholder="Enter your phone number">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-6">
+							<div class="form-group">
+								<label for="addressregister">Address</label>
+								<input type="text" class="form-control" id="addressregister" placeholder="Enter your address">
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="form-group">
+								<label for="zipcoderegister">ZIP Code</label>
+								<input type="text" class="form-control" id="zipcoderegister" placeholder="Enter your ZIP Code">
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="emailregister">Email address</label>
+						<input type="email" class="form-control" id="emailregister" placeholder="Enter email">
+					</div>
+					<div class="form-group">
+						<label for="pwregister">Password</label>
+						<input type="password" class="form-control" id="pwregister" placeholder="Password">
+					</div>
+					<button type="submit" class="btn btn-purple-flat" id="submitregisterbtn">Submit</button>
+				</form>
+			</div>
+			<!--end oana's code/update -->
+			<div id="messagemodal" class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<h3>Please sign in to use this feature.</h3>
+				</div>
 			</div>
 		</div>
 	</div>

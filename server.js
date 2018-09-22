@@ -79,6 +79,7 @@ passport.deserializeUser(function(id, done) {
 
 // Starts the server to begin listening
 // =============================================================
+<<<<<<< HEAD
 db.sequelize.sync({ force: true }).then(function() {
     app.listen(PORT, function() {
       console.log("App listening on PORT " + PORT);
@@ -87,3 +88,10 @@ db.sequelize.sync({ force: true }).then(function() {
 
 
   //==============================================================
+=======
+db.sequelize.sync({ force: false }).then(function () {
+  app.listen(PORT, function () {
+    console.log("App listening on PORT " + PORT);
+  });
+});
+>>>>>>> 2631fcb6675aaa03402e8089c116bb03ba3dd31f
