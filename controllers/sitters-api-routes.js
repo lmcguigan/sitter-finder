@@ -1,13 +1,3 @@
-
-
-
-
-//  THIS IS THE CODE IMPORTED FROM THE PREVIOUS FILE NAMED CONTROLLERS.JS
-
-
-
-
-
 var express = require("express");
 var router = express.Router();
 var passport = require('passport-local');
@@ -15,8 +5,6 @@ var session = require('express-session');
 
 
 var db = require("../models");
-
-//Create all routes
 
 router.post("/api/sitters", function (req, res) {
     db.sitters.findAll({
@@ -26,9 +14,9 @@ router.post("/api/sitters", function (req, res) {
         }
       }).then(function (results) {
           console.log("RESULTS===========");
-          console.log(results);
+          console.log(results[0].dataValues);
         var handlebarsObject = {
-            sitters: results
+            sitters: results[0].dataValues
         };
         return res.render("search", handlebarsObject)
     });
