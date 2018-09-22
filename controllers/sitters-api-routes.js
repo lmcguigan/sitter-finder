@@ -23,10 +23,11 @@ router.get("/api/Sitters", function (req, res) {
     console.log(req.params);
     db.Sitters.findAll({
         where: {
+          service: req.body.service,
           location: req.body.location
         }
       }).then(function (results) {
-          console.log("results");
+          console.log("RESULTS===========");
           console.log(results);
         var handlebarsObject = {
             Sitters: results
