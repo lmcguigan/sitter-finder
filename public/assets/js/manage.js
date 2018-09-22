@@ -22,8 +22,8 @@ $(document).ready(function() {
             data: {
                 id: putId,
                 task: taskText,
-                sitter: sitterText
-            }
+                sitter: sitterTexnode 
+                       }
         })
     });
 
