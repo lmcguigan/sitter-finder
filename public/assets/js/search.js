@@ -17,6 +17,7 @@ $(document).ready(function() {
             location: $("#zipcodeinput").val(),
             date: $("#dateinput").val(),
         };
+        console.log("New Sitter Request")
         console.log(newSitterRequest);
         // Send the POST request.
         $.get("/api/sitters", newSitterRequest)
