@@ -181,3 +181,13 @@ a:hover {
         margin-bottom: .5rem;
     }
 }
+
+.make-changes {
+    color: white;
+    background-color: blue;
+    font-weight: 600;
+  }
+  
+  .end-changes [contenteditable=true] {
+    background-color: red;
+  }

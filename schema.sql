@@ -2,3 +2,5 @@
 DROP DATABASE IF EXISTS petfinder_db;
 -- Creates the "blogger" database --
 CREATE DATABASE petfinder_db;
+
+
