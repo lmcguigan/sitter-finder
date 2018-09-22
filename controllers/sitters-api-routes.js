@@ -14,9 +14,9 @@ router.post("/api/sitters", function (req, res) {
         }
       }).then(function (results) {
           console.log("RESULTS===========");
-          console.log(results[0].dataValues);
+          console.log(results);
         var handlebarsObject = {
-            sitters: results[0].dataValues
+            sitters: results
         };
         return res.render("search", handlebarsObject)
     });
