@@ -14,6 +14,15 @@ module.exports = {
       days_available: {
         type: Sequelize.DATE
       },
+      service: {
+        type: Sequelize.STRING
+      },
+      photo_url: {
+        type: Sequelize.STRING
+      },
+      location: {
+        type: Sequelize.INTEGER
+      },
       phone: {
         type: Sequelize.STRING
       },
