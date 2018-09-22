@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   sitters.associate = function(models) {
     // associations can be defined here
-    Sitters.hasMany(models.reservations)
+    sitters.hasMany(models.reservations)
   };
   return sitters;
 };
