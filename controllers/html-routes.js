@@ -8,6 +8,7 @@ router.get("/", function (req, res) {
 router.get("/search", function (req, res) {
     res.render("search");
 });
+
 router.get("/manage", function (req, res) {
     db.reservations.findAll({}).then(function(results){
         //console.log(results);
