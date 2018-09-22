@@ -1,3 +1,16 @@
+{{#if sitters}}
+<div class="splash top">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-9 sitterlist">
+                <h3>Available Sitters</h3>
+                <div class="card-deck" id="card-holder">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{else}}
 <div id="searchmodal" class="modal">
     <div class="modal-content">
         <span class="close searchclose">&times;</span>
@@ -28,3 +41,4 @@
         </form>
     </div>
 </div>
+{{/if}}
