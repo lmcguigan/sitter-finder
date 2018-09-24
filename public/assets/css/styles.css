@@ -1,5 +1,6 @@
 body {
     font-family: 'Quicksand', sans-serif;
+    color: #0F4369;
 }
 
 #colorbg {
@@ -10,10 +11,13 @@ body {
 .splash {
     background-color: #52D7D9;
     padding-top: 10rem;
+    padding-bottom: 5rem;
 }
-.top{
+
+.top {
     padding-top: 7rem;
 }
+
 .frame {
     border-radius: 2rem;
     background-color: whitesmoke;
@@ -37,10 +41,12 @@ h3 {
     margin: 1.5rem 0 1.5rem;
     font-size: 1.5rem;
 }
-h4{
+
+h4 {
     font-size: 1rem;
     color: white;
 }
+
 .navbar {
     background: #0F4369;
     box-shadow: 0 4px 10px rgba(0, 0, 0, .5);
@@ -74,10 +80,10 @@ h4{
 
 .modal-content {
     background-color: #ffffff;
+    border: 2px solid #52D7D9;
     margin: 25% auto;
     margin-top: 70px;
     padding: 20px;
-    border: none;
     width: 50%;
     text-align: center;
     display: flex;
@@ -113,9 +119,12 @@ h4{
 #searchmodal {
     display: block;
 }
-.card{
+
+.card {
     border: none;
+    max-width: 200px;
 }
+
 .placard {
     background: #52D7D9;
     background-image: -webkit-linear-gradient(top, hsl(181, 64%, 59%), hsl(181, 73%, 43%));
@@ -125,7 +134,7 @@ h4{
     background-image: linear-gradient(top, hsl(181, 64%, 59%), hsl(181, 73%, 43%));
     color: white;
     font-weight: bolder;
-    border-radius: 4.8px;
+    border-radius: 1.5rem;
     justify-content: center;
     text-align: center;
     padding: 1rem;
@@ -142,11 +151,7 @@ a:hover {
 }
 
 .icon {
-    float: none;
-}
-
-.sitterlist {
-    display: none;
+    width: 100px;
 }
 
 .resrow {
@@ -162,6 +167,7 @@ a:hover {
     background-color: #0F4369;
     color: white;
 }
+
 #registermodal {
     display: none;
 }
@@ -174,18 +180,20 @@ a:hover {
     margin-left: 10px;
 }
 
-.btn-pink {
+.btn{
     color: white;
-    background-image: -webkit-linear-gradient(top, #FC7297, #FF4778);
-    background-image: -moz-linear-gradient(top, #FC7297, #FF4778);
-    background-image: -ms-linear-gradient(top, #FC7297, #FF4778);
-    background-image: -o-linear-gradient(top, #FC7297, #FF4778);
-    background-image: linear-gradient(top, #FC7297, #FF4778);
+}
+
+.btn-pink {
+    background-image: -webkit-linear-gradient(top, #f98fab, #FF4778);
+    background-image: -moz-linear-gradient(top, #f98fab, #FF4778);
+    background-image: -ms-linear-gradient(top, #f98fab, #FF4778);
+    background-image: -o-linear-gradient(top, #f98fab, #FF4778);
+    background-image: linear-gradient(top, #f98fab, #FF4778);
     box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 2px 0 #DE3361, 0 4px 2px rgba(0, 0, 0, .5);
 }
 
 .btn-purple {
-    color: white;
     background-image: -webkit-linear-gradient(top, #B894D9, #794BA3);
     background-image: -moz-linear-gradient(top, #B894D9, #794BA3);
     background-image: -ms-linear-gradient(top, #B894D9, #794BA3);
@@ -194,23 +202,24 @@ a:hover {
     box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 2px 0 #63338F, 0 4px 2px rgba(0, 0, 0, .5);
 }
 
-.btn-purple-flat{
+.btn-purple-flat {
+    border: none;
     background-image: -webkit-linear-gradient(top, #B894D9, #794BA3);
     background-image: -moz-linear-gradient(top, #B894D9, #794BA3);
     background-image: -ms-linear-gradient(top, #B894D9, #794BA3);
     background-image: -o-linear-gradient(top, #B894D9, #794BA3);
     background-image: linear-gradient(top, #B894D9, #794BA3);
-    color: white;
 }
 
-.btn-pink-flat{
-    color: white;
-    background-image: -webkit-linear-gradient(top, #FC7297, #FF4778);
-    background-image: -moz-linear-gradient(top, #FC7297, #FF4778);
-    background-image: -ms-linear-gradient(top, #FC7297, #FF4778);
-    background-image: -o-linear-gradient(top, #FC7297, #FF4778);
-    background-image: linear-gradient(top, #FC7297, #FF4778);
+.btn-pink-flat {
+    border: none;
+    background-image: -webkit-linear-gradient(top, #f98fab, #FF4778);
+    background-image: -moz-linear-gradient(top, #f98fab, #FF4778);
+    background-image: -ms-linear-gradient(top, #f98fab, #FF4778);
+    background-image: -o-linear-gradient(top, #f98fab, #FF4778);
+    background-image: linear-gradient(top, rgb(249, 143, 171), #FF4778);
 }
+
 @media screen and (max-width: 991px) {
     #barregisterbtn {
         margin-left: 0;
@@ -223,13 +232,37 @@ a:hover {
         margin-bottom: .5rem;
     }
 }
+@media screen and (max-width: 450px) {
+    body {
+        font-size: 0.75rem;
+    }
+    .form-control {
+        font-size: 0.75rem;
+    }
+    .card-title{
+        font-size: 1rem;
+    }
+}
 
 .make-changes {
     color: white;
     background-color: blue;
     font-weight: 600;
-  }
-  
-  .end-changes [contenteditable=true] {
+}
+
+.end-changes [contenteditable=true] {
     background-color: red;
-  }
+}
+
+.popover-header{
+    margin-top: 0;
+    background-color: #0F4369;
+    color: white;
+}
+.popover-body{
+    font-family: 'Quicksand', sans-serif;
+    color: #0F4369;
+}
+#modalbtnrow{
+    display: none;
+}
