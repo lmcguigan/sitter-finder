@@ -36,11 +36,31 @@ module.exports = {
     }, {
       username: "Allison",
       days_available: new Date,
-      phone: 2145550938,
+      phone: 2149259882,
       location: 75201,
       photo_url: "https://picsum.photos/233/200?image=1027",
       service: "Drop-in visits",
       rating: 4,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      username: "Ciara",
+      days_available: new Date,
+      phone: 2148256787,
+      location: 75201,
+      photo_url: "https://picsum.photos/233/200?image=1011",
+      service: "Boarding",
+      rating: 5,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      username: "John",
+      days_available: new Date,
+      phone: 2149918726,
+      location: 75226,
+      photo_url: "https://picsum.photos/233/200?image=856",
+      service: "Dog Walking",
+      rating: 5,
       createdAt: new Date(),
       updatedAt: new Date()
     }

@@ -13,8 +13,6 @@ router.post("/api/sitters", function (req, res) {
           location: req.body.location
         }
       }).then(function (results) {
-          console.log("RESULTS===========");
-          console.log(results);
         var handlebarsObject = {
             sitters: results
         };
@@ -23,14 +21,21 @@ router.post("/api/sitters", function (req, res) {
 });
 
 router.post("/api/reservations", function (req, res) {
-    db.reservations.create([
-        "date", "customer_id", "sitter_id", "service"
-    ], [
-            req.body.date, req.body.customer_id, req.body.sitter_id, req.body.service
-        ],
-        function () {
-            res.redirect("/manage");
-        }
-    )
+    db.reservations.create({
+        date: req.body.date,
+        customerId: req.body.customer_id,
+        sitter_id: req.body.sitter_id,
+        service: req.body.service
+    }).then(function (results){
+        console.log(results);
+        db.reservations.findAll({
+            where: {
+                customerId: req.body.customer_id
+            }
+        }).then(function(results){
+            //console.log(results);
+            res.render("manage", {reservations: results});
+        })
+    })
 });
 module.exports = router;
