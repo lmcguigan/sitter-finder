@@ -2,8 +2,10 @@ $(document).ready(function() {
     var loggedin = false;
 
     //Register btn click fct
-    //
     $("#barregisterbtn").click(function() {
+        $('#registerClose').on('click', function() {
+            $('#registermodal').hide();
+        });
         if (loggedin === false) {
             $("#registermodal").css("display", "block");
             $('#submitregisterbtn').on('click', createNewCustomer);
@@ -43,7 +45,6 @@ $(document).ready(function() {
                     $('#phoneregister').val('');
                     $('#addressregister').val('');
                     $('#registermodal').hide();
-                    $('#registermodal').hide();
                 })
             }
             console.log(loggedin);
@@ -62,6 +63,9 @@ $(document).ready(function() {
     //Login btn click fct
     //
     $("#barloginbtn").click(function() {
+        $('#loginClose').on('click', function() {
+            $('#loginmodal').hide();
+        })
         if (loggedin === false) {
             $("#loginmodal").css("display", "block");
             $('#submitloginbtn').on('click', loginInCustomer);
@@ -106,13 +110,8 @@ $(document).ready(function() {
         $.get('/api/customers/logout', function() {
             $("#barloginbtn").text("log in");
             loggedin = false;
-        })
-       
+        })       
     }
 })
-
-// $(".close").click(function () {
-    //     $(this).parents(".modal").css("display", "none");
-    // });
 
    

@@ -10,12 +10,7 @@ router.post('/api/customers/login',  passport.authenticate('local-login', {
 }),
 function(req, res) {
     console.log("hello");
-
-    // if (req.body.remember) {
-    //   req.session.cookie.maxAge = 1000 * 60 * 3;
-    // } else {
-    //   req.session.cookie.expires = false;
-    // }
+    
 res.redirect('/');
 });
 
@@ -73,6 +68,12 @@ router.get('/api/customers/logout', function(req, res) {
   res.redirect('/');
 });
 
+module.exports = router;
+
+
+
+
+
 
 // router.get('/register', function (req, res) {
 //   res.render('/', { message: req.flash('registerMessage') })
@@ -101,39 +102,6 @@ router.get('/api/customers/logout', function(req, res) {
 //           })
 
 
-// bcrypt.genSalt(10, (err, salt) => {
-//   bcrypt.hash(newUser.password, salt, (err, hash) => {
-//     if(err) throw err;
-//     newUser.password = hash;
-//     newUser.save()
-//       .then(user => {
-//         req.flash('success_msg', 'You are now registered and can log in');
-//         res.redirect('/users/login');
-//       })
-//       .catch(err => {
-//         console.log(err);
-//         return;
-//       });
-//   });
-// });
-//         }
-
-
-//       });
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
 //login Routes
 // router.post('/api/customers/login', 
 // passport.authenticate('local-login', {
@@ -158,22 +126,3 @@ router.get('/api/customers/logout', function(req, res) {
 //   req.flash('success_msg', 'You are logged out');
 //   res.redirect('/users/login');
 // });
-
-
-
-module.exports = router;
-
-    //passport.use(new LocalStrategy({
-      //     usernameField: 'email',
-      //     passwordField: 'password',
-      //     session: true
-      //   },
-      //     function(username, password, done) {
-      //       db.customers.findOne({ username: username }, function (err, customer) {
-      //         if (err) { return done(err); }
-      //         if (!customer) { return done(null, false); }
-      //         if (!customer.verifyPassword(password)) { return done(null, false); }
-      //         return done(null, customer);
-      //       });
-      //     }
-      //   ));
