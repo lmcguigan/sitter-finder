@@ -1,6 +1,4 @@
 $(document).ready(function () {
-    $("#dateinput").attr("placeholder", moment().format("MM/DD/YYYY"))
-
     $("#searchagainbtn").click(function (event) {
         event.preventDefault();
         $("#messagemodal").css("display", "none");
