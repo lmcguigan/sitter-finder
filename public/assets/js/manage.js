@@ -4,11 +4,19 @@
 
 $(document).ready(function() {
     console.log('working')
+
+    $(".date").each(function formatDate(){
+        var text = $(this).text();
+        var formatted = moment(text).format("MMM DD, YYYY");
+        $(this).text(formatted);
+    })
+
     $(".make-changes").click(function(){
         // console.log("click")
         $(".col-3").attr("contenteditable", "true");       
 
     });
+    
 
     $(".change_button").click(function() {
         alert("Change Made");

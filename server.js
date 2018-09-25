@@ -3,7 +3,17 @@ var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var passport = require('passport');
 var session = require('express-session');
+<<<<<<< HEAD
 var flash = require('connect-flash');
+=======
+var cookieParser = require('cookie-parser');
+var moment= require("moment");
+
+// db modules
+var db = require("./models");
+
+
+>>>>>>> master
 
 var PORT = process.env.PORT || 3000;
 
@@ -75,11 +85,23 @@ var customerRoutes = require("./controllers/customers-api-routes");
 var sitterRoutes = require("./controllers/sitters-api-routes");
 var registrationRoutes = require("./controllers/sitters-api-routes");
 
+
 app.use(htmlRoutes);
 app.use(customerRoutes);
 app.use(sitterRoutes);
 app.use(registrationRoutes);
 
+<<<<<<< HEAD
+=======
+
+//Set up for passport-local-sequelize
+//==============================================================
+// passport.use(db.createStrategy());
+ 
+// passport.serializeUser(db.serializeUser());
+// passport.deserializeUser(db.deserializeUser());
+
+>>>>>>> master
 // Starts the server to begin listening
 // =============================================================
 db.sequelize.sync({ force: false }).then(function () {

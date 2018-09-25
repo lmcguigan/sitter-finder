@@ -12,7 +12,7 @@ router.delete('/api/delete', function(req, res){
         }
     })
     db.reservations.findAll({}).then(function(results){
-        //console.log(results);
+        console.log(results);
         res.render("manage", {reservations: results});
     })
 })

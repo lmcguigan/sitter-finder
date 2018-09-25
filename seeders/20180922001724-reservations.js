@@ -17,6 +17,7 @@ module.exports = {
      sitter_id: 123456,
      pet_id:1234,
      service:"Dog Walking",
+     sittername:"Jessica",
      createdAt: new Date(),
      updatedAt: new Date()   
 
@@ -26,6 +27,7 @@ module.exports = {
    sitter_id: 123,
    pet_id:12,
    service:"Dog Walking",
+   sittername:"Jacob",
    createdAt: new Date(),
    updatedAt: new Date() 
    
