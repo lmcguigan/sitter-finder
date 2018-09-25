@@ -3,17 +3,7 @@ var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var passport = require('passport');
 var session = require('express-session');
-<<<<<<< HEAD
 var flash = require('connect-flash');
-=======
-var cookieParser = require('cookie-parser');
-var moment= require("moment");
-
-// db modules
-var db = require("./models");
-
-
->>>>>>> master
 
 var PORT = process.env.PORT || 3000;
 
