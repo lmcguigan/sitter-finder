@@ -3,9 +3,6 @@ var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var passport = require('passport');
 var session = require('express-session');
-<<<<<<< HEAD
-var flash = require('connect-flash');
-=======
 var cookieParser = require('cookie-parser');
 var moment= require("moment");
 
@@ -13,7 +10,6 @@ var moment= require("moment");
 var db = require("./models");
 
 
->>>>>>> master
 
 var PORT = process.env.PORT || 3000;
 
@@ -91,8 +87,6 @@ app.use(customerRoutes);
 app.use(sitterRoutes);
 app.use(registrationRoutes);
 
-<<<<<<< HEAD
-=======
 
 //Set up for passport-local-sequelize
 //==============================================================
@@ -101,7 +95,6 @@ app.use(registrationRoutes);
 // passport.serializeUser(db.serializeUser());
 // passport.deserializeUser(db.deserializeUser());
 
->>>>>>> master
 // Starts the server to begin listening
 // =============================================================
 db.sequelize.sync({ force: false }).then(function () {
