@@ -1,10 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const reservations = sequelize.define('reservations', {
-    date: DataTypes.DATE,
+    date: DataTypes.DATEONLY,
     customerId: DataTypes.INTEGER,
     sitter_id: DataTypes.INTEGER,
     pet_id: DataTypes.INTEGER,
+    sittername: DataTypes.STRING,
     service: DataTypes.STRING
   }, {});
   reservations.associate = function(models) {
@@ -12,3 +13,6 @@ module.exports = (sequelize, DataTypes) => {
   };
   return reservations;
 };
+
+
+
