@@ -123,8 +123,11 @@ h4 {
 .card {
     border: none;
     max-width: 200px;
+    min-width: 175px;
 }
-
+.date {
+    padding-top: 1rem;
+}
 .placard {
     background: #52D7D9;
     background-image: -webkit-linear-gradient(top, hsl(181, 64%, 59%), hsl(181, 73%, 43%));

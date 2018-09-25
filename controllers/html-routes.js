@@ -11,7 +11,6 @@ router.get("/search", function (req, res) {
 
 router.get("/manage", function (req, res) {
     db.reservations.findAll({}).then(function(results){
-        //console.log(results);
         res.render("manage", {reservations: results});
     })
     

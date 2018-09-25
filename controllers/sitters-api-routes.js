@@ -25,6 +25,7 @@ router.post("/api/reservations", function (req, res) {
         date: req.body.date,
         customerId: req.body.customer_id,
         sitter_id: req.body.sitter_id,
+        sittername: req.body.sittername,
         service: req.body.service
     }).then(function (results){
         console.log(results);
