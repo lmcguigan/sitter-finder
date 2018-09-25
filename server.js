@@ -91,8 +91,6 @@ app.use(customerRoutes);
 app.use(sitterRoutes);
 app.use(registrationRoutes);
 
-<<<<<<< HEAD
-=======
 
 //Set up for passport-local-sequelize
 //==============================================================
@@ -101,7 +99,6 @@ app.use(registrationRoutes);
 // passport.serializeUser(db.serializeUser());
 // passport.deserializeUser(db.deserializeUser());
 
->>>>>>> master
 // Starts the server to begin listening
 // =============================================================
 db.sequelize.sync({ force: false}).then(function () {
