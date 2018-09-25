@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     customerId: DataTypes.INTEGER,
     sitter_id: DataTypes.INTEGER,
     pet_id: DataTypes.INTEGER,
+    sittername: DataTypes.STRING,
     service: DataTypes.STRING
   }, {});
   reservations.associate = function(models) {
@@ -12,3 +13,6 @@ module.exports = (sequelize, DataTypes) => {
   };
   return reservations;
 };
+
+
+

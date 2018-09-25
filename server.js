@@ -5,6 +5,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
+var moment= require("moment");
 
 // db modules
 var db = require("./models");
@@ -71,10 +72,12 @@ var customerRoutes = require("./controllers/customers-api-routes");
 var sitterRoutes = require("./controllers/sitters-api-routes");
 var registrationRoutes = require("./controllers/sitters-api-routes");
 
+
 app.use(htmlRoutes);
 app.use(customerRoutes);
 app.use(sitterRoutes);
 app.use(registrationRoutes);
+
 
 //Set up for passport-local-sequelize
 //==============================================================

@@ -23,6 +23,10 @@ module.exports = {
       service: {
         type: Sequelize.STRING
       },
+
+      sittername: {
+          type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

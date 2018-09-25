@@ -9,6 +9,7 @@ $(document).ready(function() {
         $(".col-3").attr("contenteditable", "true");       
 
     });
+    
 
     $(".change_button").click(function() {
         alert("Change Made");
