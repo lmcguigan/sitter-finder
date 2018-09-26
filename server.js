@@ -3,7 +3,17 @@ var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var passport = require('passport');
 var session = require('express-session');
+<<<<<<< HEAD
 var flash = require('connect-flash');
+=======
+var cookieParser = require('cookie-parser');
+var moment= require("moment");
+
+// db modules
+var db = require("./models");
+
+
+>>>>>>> 9337f3f25096dfeba378185f3e5609b3678974e3
 
 var PORT = process.env.PORT || 3000;
 
@@ -27,7 +37,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
+//app.use(flash());
 
 // // Global variables
 // app.use(function(req, res, next){
@@ -91,8 +101,14 @@ app.use(registrationRoutes);
 
 // Starts the server to begin listening
 // =============================================================
+<<<<<<< HEAD
 db.sequelize.sync({ force: false}).then(function () {
   app.listen(PORT, function () {
+=======
+db.sequelize.sync({ force: false }).then(function () {
+  app.listen(process.env.PORT || 3000, function () {
+    console.log("hi");
+>>>>>>> 9337f3f25096dfeba378185f3e5609b3678974e3
     console.log("App listening on PORT " + PORT);
   });
 });

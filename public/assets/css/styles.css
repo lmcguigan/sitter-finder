@@ -33,6 +33,7 @@ h1 {
 h2 {
     font-family: 'Fredoka One', cursive;
     color: #0F4369;
+    text-align: center;
 }
 
 h3 {
@@ -40,6 +41,7 @@ h3 {
     color: #0F4369;
     margin: 1.5rem 0 1.5rem;
     font-size: 1.5rem;
+    text-align: center;
 }
 
 h4 {
@@ -80,7 +82,7 @@ h4 {
 
 .modal-content {
     background-color: #ffffff;
-    border: 2px solid #52D7D9;
+    border: 2px solid hsl(181, 73%, 43%);
     margin: 25% auto;
     margin-top: 70px;
     padding: 20px;
@@ -120,14 +122,34 @@ h4 {
     display: block;
 }
 
+.seeallrow {
+    background: #52D7D9;
+    background-image: -webkit-linear-gradient(top, hsl(181, 64%, 59%), hsl(181, 73%, 43%));
+    background-image: -moz-linear-gradient(top, hsl(181, 64%, 59%), hsl(181, 73%, 43%));
+    background-image: -ms-linear-gradient(top, hsl(181, 64%, 59%), hsl(181, 73%, 43%));
+    background-image: -o-linear-gradient(top, hsl(181, 64%, 59%), hsl(181, 73%, 43%));
+    background-image: linear-gradient(top, hsl(181, 64%, 59%), hsl(181, 73%, 43%));
+    margin-top: 1rem;
+    padding: 1rem;
+    margin-right: -20px;
+    margin-left: -20px;
+}
+
+.search-modal-content {
+    padding-bottom: 0px;
+}
+
 .card {
     border: none;
     max-width: 200px;
-    min-width: 175px;
+    min-width: 199px;
+    margin-bottom: 1rem!important;
 }
+
 .date {
     padding-top: 1rem;
 }
+
 .placard {
     background: #52D7D9;
     background-image: -webkit-linear-gradient(top, hsl(181, 64%, 59%), hsl(181, 73%, 43%));
@@ -153,8 +175,22 @@ a:hover {
     text-decoration: none;
 }
 
+.logo {
+    height: 3rem;
+    float: left;
+    margin-right: 1rem;
+}
+
 .icon {
     width: 100px;
+}
+
+.dogimg {
+    width: 150px;
+}
+
+.dogimgholder {
+    padding-right: 1rem;
 }
 
 .resrow {
@@ -175,6 +211,10 @@ a:hover {
     display: none;
 }
 
+.btn {
+    border: none;
+}
+
 #barregisterbtn {
     margin-left: 15px;
 }
@@ -183,7 +223,7 @@ a:hover {
     margin-left: 10px;
 }
 
-.btn{
+.btn {
     color: white;
 }
 
@@ -223,6 +263,14 @@ a:hover {
     background-image: linear-gradient(top, rgb(249, 143, 171), #FF4778);
 }
 
+#body-btn-holder {
+    display: none;
+    justify-content: center;
+    padding-bottom: 1rem;
+    background: #0F4369;
+    border-radius: 1rem;
+}
+
 @media screen and (max-width: 991px) {
     #barregisterbtn {
         margin-left: 0;
@@ -235,14 +283,44 @@ a:hover {
         margin-bottom: .5rem;
     }
 }
+
+#lowertagline {
+    display: none;
+    padding: 15px;
+}
+
+@media screen and (max-width: 898px) {
+    h2 {
+        font-size: 3rem;
+    }
+    #tagline {
+        display: none;
+    }
+    #lowertagline {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    h2 {
+        font-size: 2.5rem;
+    }
+}
+
 @media screen and (max-width: 450px) {
+    .dogimg {
+        width: 125px;
+    }
+    h2 {
+        font-size: 2.25rem;
+    }
     body {
         font-size: 0.75rem;
     }
     .form-control {
         font-size: 0.75rem;
     }
-    .card-title{
+    .card-title {
         font-size: 1rem;
     }
 }
@@ -257,15 +335,25 @@ a:hover {
     background-color: red;
 }
 
-.popover-header{
+.popover-header {
     margin-top: 0;
     background-color: #0F4369;
     color: white;
 }
-.popover-body{
+
+.popover-body {
     font-family: 'Quicksand', sans-serif;
     color: #0F4369;
 }
-#modalbtnrow{
+
+#modalbtnrow {
+    display: none;
+}
+
+.pad-top {
+    padding-top: 1rem;
+}
+
+#addtionalinputmodal {
     display: none;
 }
