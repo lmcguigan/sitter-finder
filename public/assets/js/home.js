@@ -1,9 +1,13 @@
-$(document).ready(function() {
+$(document).ready(function () {
+    //THIS FUNCTION IS NECESSARY TO CLOSE MODALS WITH THE X
+    $(".close").click(function () {
+        $(this).parents(".modal").css("display", "none");
+    });
     var loggedin = false;
 
     //Register btn click fct
     //
-    $("#barregisterbtn").click(function() {
+    $("#barregisterbtn").click(function () {
         if (loggedin === false) {
             $("#registermodal").css("display", "block");
             $('#submitregisterbtn').on('click', createNewCustomer);
@@ -20,30 +24,28 @@ $(document).ready(function() {
             phone: $('#phoneregister').val().trim(),
             address: $('#addressregister').val().trim()
         }
-        $.post('/api/customers/register', customer, function(res) {            
+        $.post('/api/customers/register', customer, function (res) {
             if (res.success) {
                 loggedin = true;
                 $("#registermodal").css("display", "none");
                 $("#barloginbtn").text("log out");
-                $("#barregisterbtn").css("display", "none");    
+                $("#barregisterbtn").css("display", "none");
                 $('#nameregister').val('');
                 $('#zipcoderegister').val('');
                 $('#emailregister').val('');
                 $('#pwregister').val('');
                 $('#phoneregister').val('');
                 $('#addressregister').val('');
-                $('#registermodal').hide();
             } else {
                 $("#registerErrorMessage").text(res.message);
-                $('#registerClose').on('click', function() {
+                $('#registerClose').on('click', function () {
                     $('#nameregister').val('');
                     $('#zipcoderegister').val('');
                     $('#emailregister').val('');
                     $('#pwregister').val('');
                     $('#phoneregister').val('');
                     $('#addressregister').val('');
-                    $('#registermodal').hide();
-                    $('#registermodal').hide();
+                    $("#registermodal").css("display", "none");
                 })
             }
             console.log(loggedin);
@@ -61,7 +63,7 @@ $(document).ready(function() {
 
     //Login btn click fct
     //
-    $("#barloginbtn").click(function() {
+    $("#barloginbtn").click(function () {
         if (loggedin === false) {
             $("#loginmodal").css("display", "block");
             $('#submitloginbtn').on('click', loginInCustomer);
@@ -75,11 +77,11 @@ $(document).ready(function() {
     function loginInCustomer(event) {
         event.preventDefault();
         var credentials = {
-            email:$('#emailinput').val().trim(),
-            password:$('#pwinput').val().trim()
+            email: $('#emailinput').val().trim(),
+            password: $('#pwinput').val().trim()
         }
-        $.post('/api/customers/login', credentials, function(res) {
-            if(res.success) {
+        $.post('/api/customers/login', credentials, function (res) {
+            if (res.success) {
                 loggedin = true;
                 console.log('test ' + res);
                 $("#barloginbtn").text('log out');
@@ -90,7 +92,7 @@ $(document).ready(function() {
                 console.log('res failed')
                 $('#emailinput').val('');
                 $('#pwinput').val('');
-                $("#loginmodal").hide();
+                $("#loginmodal").css("display", "none");
             }
         });
 
@@ -99,15 +101,15 @@ $(document).ready(function() {
         //     $('#pwinput').val('');
         //     $("#loginmodal").hide();
         // }
-        
+
     }
 
     function logOutCustomer() {
-        $.get('/api/customers/logout', function() {
+        $.get('/api/customers/logout', function () {
             $("#barloginbtn").text("log in");
             loggedin = false;
         })
-       
+
     }
 })
 
@@ -115,4 +117,3 @@ $(document).ready(function() {
     //     $(this).parents(".modal").css("display", "none");
     // });
 
-   

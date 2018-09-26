@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    $(".close").click(function () {
+        $(this).parents(".modal").css("display", "none");
+    });
     //function to check if zipcode input is valid
     function checkZipCode(input) {
         return (/(^\d{5}$)|(^\d{5}-\d{4}$)/).test(input);
