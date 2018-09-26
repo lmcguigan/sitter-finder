@@ -44,7 +44,7 @@ $(document).ready(function () {
                     if (data.sitters.length === 0) {
                         $("#alertmessage").text("Sorry, there are no sitters available that meet your criteria.");
                         $("#modalbtnrow").css("display", "flex")
-                        $("#seeallbtn").css("display", "block");
+                        $("#see-all-modal").css("display", "block");
                         $("#viewresbtn").css("display", "none");
                         $("#messagemodal").css("display", "block");
                     }
@@ -90,7 +90,7 @@ $(document).ready(function () {
                                 .then(function (data) {
                                     $("#alertmessage").text("Your reservation for " + newResRequest.service + " with " + newResRequest.sitter_name + " has been scheduled for " + newResRequest.date);
                                     $("#modalbtnrow").css("display", "flex");
-                                    $(".seeallbtn").css("display", "none");
+                                    $("#see-all-modal").css("display", "none");
                                     $("#viewresbtn").css("display", "block");
                                     $("#messagemodal").css("display", "block");
                                 });
@@ -169,7 +169,7 @@ $(document).ready(function () {
                                     $("#addtionalinputmodal").css("display", "none");
                                     $("#alertmessage").text("Your reservation for " + resRequest.service + " with " + resRequest.sitter_name + " has been scheduled for " + resRequest.date);
                                     $("#modalbtnrow").css("display", "flex");
-                                    $("#seeallbtn").css("display", "none");
+                                    $("#see-all-modal").css("display", "none");
                                     $("#viewresbtn").css("display", "block");
                                     $("#messagemodal").css("display", "block");
                                 });
