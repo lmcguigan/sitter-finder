@@ -3,9 +3,6 @@ var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var passport = require('passport');
 var session = require('express-session');
-<<<<<<< HEAD
-var flash = require('connect-flash');
-=======
 var cookieParser = require('cookie-parser');
 var moment= require("moment");
 
@@ -13,7 +10,6 @@ var moment= require("moment");
 var db = require("./models");
 
 
->>>>>>> 9337f3f25096dfeba378185f3e5609b3678974e3
 
 var PORT = process.env.PORT || 3000;
 
@@ -101,7 +97,7 @@ app.use(registrationRoutes);
 
 // Starts the server to begin listening
 // =============================================================
-db.sequelize.sync({ force: false }).then(function () {
+db.sequelize.sync({ force: false}).then(function () {
   app.listen(process.env.PORT || 3000, function () {
     console.log("hi");
     console.log("App listening on PORT " + PORT);
