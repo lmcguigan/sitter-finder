@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Fredoka+One|Quicksand" rel="stylesheet">
-	<link rel="shortcut icon" type="image/png" href="assets/images/dog-02.png">
+	<link rel="shortcut icon" type="image/png" href="assets/images/favicon-02.png">
 	<script src="//code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -23,7 +23,7 @@
 <body>
 	<nav class="navbar fixed-top navbar-expand-lg navbar-dark">
 		<a class="navbar-brand" href="/">
-			<h1>SitterFinder</h1>
+			<img class ="logo" src="assets/images/favicon-02.png"><h1 id="appname">SitterFinder</h1>
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 		 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,18 +119,10 @@
 			</div>
 			<!--end oana's code/update -->
 		</div>
-		<div id="messagemodal" class="modal">
+		<div id="signinrequired" class="modal">
 			<div class="modal-content">
 				<span class="close">&times;</span>
-				<h3 id="alertmessage">Please sign in to use this feature.</h3>
-				<div class="row" id="modalbtnrow">
-					<div class="col-6 d-flex justify-content-end">
-						<button class="btn btn-purple-flat" id="searchagainbtn">Search again</button>
-					</div>
-					<div class="col-6 d-flex justify-content-start">
-						<a href="/manage"><button class="btn btn-pink-flat" id="viewresbtn">View reservations</button></a>
-					</div>
-				</div>
+				<h3>Please sign in to use this feature.</h3>
 			</div>
 		</div>
 	</div>

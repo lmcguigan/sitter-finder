@@ -33,7 +33,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
+//app.use(flash());
 
 // // Global variables
 // app.use(function(req, res, next){

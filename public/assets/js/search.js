@@ -1,6 +1,17 @@
 $(document).ready(function () {
+    //function to check if zipcode input is valid
+    function checkZipCode(input) {
+        return (/(^\d{5}$)|(^\d{5}-\d{4}$)/).test(input);
+    };
     $("#searchagainbtn").click(function (event) {
         event.preventDefault();
+        $("#card-holder").empty();
+        $("#messagemodal").css("display", "none");
+        $("#searchmodal").css("display", "block");
+    });
+    $("#search-body").click(function (event) {
+        event.preventDefault();
+        $("#card-holder").empty();
         $("#messagemodal").css("display", "none");
         $("#searchmodal").css("display", "block");
     });
@@ -17,11 +28,6 @@ $(document).ready(function () {
         today = moment();
         requestDate = moment(newSitterRequest.date);
         dayDiff = requestDate.diff(today, "days");
-        console.log(dayDiff);
-        //function to check if zipcode input is valid
-        function checkZipCode(input) {
-            return (/(^\d{5}$)|(^\d{5}-\d{4}$)/).test(input);
-        };
         //if not, the popover will display
         if (checkZipCode(newSitterRequest.location) === false) {
             $("#zipcodeinput").popover("show");
@@ -35,33 +41,15 @@ $(document).ready(function () {
             $.post("/api/sitters", newSitterRequest)
                 .then(function (data) {
                     $("#searchmodal").css("display", "none");
-                    console.log(data);
                     if (data.sitters.length === 0) {
                         $("#alertmessage").text("Sorry, there are no sitters available that meet your criteria.");
                         $("#modalbtnrow").css("display", "flex")
+                        $("#seeallbtn").css("display", "block");
+                        $("#viewresbtn").css("display", "none");
                         $("#messagemodal").css("display", "block");
                     }
                     else {
-                        var sittersContainer = `<div class="splash top">
-                            <div class="container-fluid">
-                                <div class="row justify-content-center">
-                                    <div class="col-sm-12 col-md-9 sitterlist">
-                                        <div class="row">
-                                            <div class="col-12 d-flex justify-content-center">
-                                                <h3>Available Sitters</h3>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 d-flex justify-content-center">
-                                                <div class="card-deck" id="card-holder">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>`;
-                        $("#colorbg").append(sittersContainer);
+                        $("#listname").text("Sitters available for " + newSitterRequest.service);
                         for (let i = 0; i < data.sitters.length; i++) {
                             var sitter = data.sitters[i];
                             var sitterCard = `<div class="card">
@@ -74,17 +62,19 @@ $(document).ready(function () {
                                 </div>
                             </div>`
                             $("#card-holder").append(sitterCard);
+                            $("#see-all-body").css("display", "block");
+                            $("#search-body").css("display", "none");
+                            $("#body-btn-holder").css("display", "flex");
                         }
-                        $(".sitterlist").css("display", "block");
                         $(".book-btn").on("click", function (event) {
                             event.preventDefault();
                             //if (signedin === true){
 
                             //}
                             //else{
-                                //$("#alertmessage").text();
-                                //$("#modalbtnrow").css("display", "none");
-                                //$("#messagemodal").css("display", "block");
+                            //$("#alertmessage").text();
+                            //$("#modalbtnrow").css("display", "none");
+                            //$("#messagemodal").css("display", "block");
                             //}
                             var sitter = $(this).data("id");
                             var sittername = $(this).data("name");
@@ -98,14 +88,94 @@ $(document).ready(function () {
                             }
                             $.post("/api/reservations", newResRequest)
                                 .then(function (data) {
-                                    console.log(data);
                                     $("#alertmessage").text("Your reservation for " + newResRequest.service + " with " + newResRequest.sitter_name + " has been scheduled for " + newResRequest.date);
                                     $("#modalbtnrow").css("display", "flex");
+                                    $(".seeallbtn").css("display", "none");
+                                    $("#viewresbtn").css("display", "block");
                                     $("#messagemodal").css("display", "block");
                                 });
                         });
                     }
                 });
         }
+    });
+    $(".see-all-btn").click(function (event) {
+        event.preventDefault();
+        $(this).parents(".modal").css("display", "none");
+        $("#dateinput").popover("hide");
+        $("#zipcodeinput").popover("hide");
+        $.get("/api/sitters")
+            .then(function (data) {
+                $("#card-holder").empty();
+                $("#listname").text("All Available Sitters");
+                for (let i = 0; i < data.length; i++) {
+                    var sitter = data[i];
+                    var sitterCard = `<div class="card">
+                        <img class="card-img-top" src=${sitter.photo_url} alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">${sitter.username}</h5>
+                            <p class="card-text">Service offered: ${sitter.service} </p>
+                            <p class="card-text">Location: ${sitter.location} </p>
+                            <p class="card-text">Rating: ${sitter.rating}</p>
+                            <button class="btn btn-pink-flat show-all-book-btn" data-id="${sitter.id}" data-name="${sitter.username}" data-service="${sitter.service}">Book me!</button>
+                        </div>
+                    </div>`
+                    $("#card-holder").append(sitterCard);
+                    $("#see-all-body").css("display", "none");
+                    $("#search-body").css("display", "block");
+                    $("#body-btn-holder").css("display", "flex");
+                }
+                $(".show-all-book-btn").on("click", function (event) {
+                    event.preventDefault();
+                    var sitter = $(this).data("id");
+                    var sittername = $(this).data("name");
+                    var sitterservice = $(this).data("service");
+                    //if (signedin === true){
+
+                    //}
+                    //else{
+                    //$("#alertmessage").text();
+                    //$("#modalbtnrow").css("display", "none");
+                    //$("#messagemodal").css("display", "block");
+                    //}
+                    $("#serviceconfirmmessage").text("Booking " + sitterservice + " with " + sittername);
+                    $("#additionalinputmodal").css("display", "block");
+                    $("#submit-addtlinput").click(function (event) {
+                        event.preventDefault();
+                        var resRequest = {
+                            //this will need to be updated with logged in customerid
+                            customer_id: customerDummy,
+                            sitter_id: sitter,
+                            sitter_name: sittername,
+                            service: sitterservice,
+                            location: $("#addtlinput-zip").val(),
+                            date: $("#addtlinput-date").val(),
+                        }
+                        today = moment();
+                        reqDate = moment(resRequest.date);
+                        dayDiff = reqDate.diff(today, "days");
+                        if (checkZipCode(resRequest.location) === false) {
+                            $("#addtlinput-zip").popover("show");
+                        }
+                        //also check if day is not after today or user input is missing
+                        else if (dayDiff < 0 || isNaN(dayDiff) === true) {
+                            $("#addtlinput-date").popover("show");
+                        }
+                        else {
+                            console.log(resRequest);
+                            $.post("/api/reservations", resRequest)
+                                .then(function (data) {
+                                    console.log(data);
+                                    $("#addtionalinputmodal").css("display", "none");
+                                    $("#alertmessage").text("Your reservation for " + resRequest.service + " with " + resRequest.sitter_name + " has been scheduled for " + resRequest.date);
+                                    $("#modalbtnrow").css("display", "flex");
+                                    $("#seeallbtn").css("display", "none");
+                                    $("#viewresbtn").css("display", "block");
+                                    $("#messagemodal").css("display", "block");
+                                });
+                        }
+                    });
+                });
+            });
     });
 });
