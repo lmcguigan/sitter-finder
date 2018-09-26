@@ -6,12 +6,14 @@ $(document).ready(function () {
     $("#searchagainbtn").click(function (event) {
         event.preventDefault();
         $("#card-holder").empty();
+        $("#listname").text("");
         $("#messagemodal").css("display", "none");
         $("#searchmodal").css("display", "block");
     });
     $("#search-body").click(function (event) {
         event.preventDefault();
         $("#card-holder").empty();
+        $("#listname").text("");
         $("#messagemodal").css("display", "none");
         $("#searchmodal").css("display", "block");
     });
@@ -166,7 +168,7 @@ $(document).ready(function () {
                             $.post("/api/reservations", resRequest)
                                 .then(function (data) {
                                     console.log(data);
-                                    $("#addtionalinputmodal").css("display", "none");
+                                    $("#additionalinputmodal").css("display", "none");
                                     $("#alertmessage").text("Your reservation for " + resRequest.service + " with " + resRequest.sitter_name + " has been scheduled for " + resRequest.date);
                                     $("#modalbtnrow").css("display", "flex");
                                     $("#see-all-modal").css("display", "none");
