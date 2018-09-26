@@ -3,12 +3,25 @@ var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var passport = require('passport');
 var session = require('express-session');
+<<<<<<< HEAD
 var flash = require('connect-flash');
+=======
+<<<<<<< HEAD
+var flash = require('connect-flash');
+=======
+>>>>>>> e14a93305cbb6db9974d3d294187f19128d283cc
 var cookieParser = require('cookie-parser');
 var moment= require("moment");
 
 // db modules
 var db = require("./models");
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 9337f3f25096dfeba378185f3e5609b3678974e3
+
+>>>>>>> e14a93305cbb6db9974d3d294187f19128d283cc
 var PORT = process.env.PORT || 3000;
 
 var app = express();
@@ -52,9 +65,14 @@ app.use(registrationRoutes);
 
 // Starts the server to begin listening
 // =============================================================
+<<<<<<< HEAD
+db.sequelize.sync({ force: false}).then(function () {
+  app.listen(PORT, function () {
+=======
 db.sequelize.sync({ force: false }).then(function () {
   app.listen(process.env.PORT || 3000, function () {
     console.log("hi");
+>>>>>>> 9337f3f25096dfeba378185f3e5609b3678974e3
     console.log("App listening on PORT " + PORT);
   });
 });
