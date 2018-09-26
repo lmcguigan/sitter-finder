@@ -5,6 +5,12 @@ var session = require('express-session');
 
 
 var db = require("../models");
+router.get("/api/sitters", function (req, res){
+    db.sitters.findAll({}).then(function (results){
+        console.log(results);
+        res.json(results);
+    });
+});
 
 router.post("/api/sitters", function (req, res) {
     db.sitters.findAll({
@@ -25,7 +31,7 @@ router.post("/api/reservations", function (req, res) {
         date: req.body.date,
         customerId: req.body.customer_id,
         sitter_id: req.body.sitter_id,
-        sittername: req.body.sittername,
+        sittername: req.body.sitter_name,
         service: req.body.service
     }).then(function (results){
         console.log(results);

@@ -1,8 +1,33 @@
+<div class="splash top">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-9 sitterlist">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                        <h3 id="listname"></h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="card-deck d-flex justify-content-center" id="card-holder">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-6 pad-top" id="body-btn-holder">
+                        <button class="btn btn-pink see-all-btn" id="see-all-body">See all sitters</button>
+                        <button class="btn btn-purple" id="search-body">Search with specific terms</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div id="searchmodal" class="modal">
-    <div class="row">
-        <div class="modal-content col-11 col-sm-11 col-md-9 col-lg-6 col-xl-5">
+    <div class="row justify-content-center">
+        <div class="modal-content search-modal-content col-11 col-sm-11 col-md-9 col-lg-6 col-xl-5">
             <h3>Search for a sitter!</h3>
-            <form>
+            <form id="searchform">
                 <div class="row">
                     <div class="form-group col-12">
                         <label for="serviceselection">What service are you looking for?</label>
@@ -28,6 +53,63 @@
                 </div>
                 <button type="submit" class="btn btn-purple-flat" id="submitsearchbtn">Submit</button>
             </form>
+            <div class="row seeallrow">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            <p>or, instead...</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            <button class="btn btn-pink see-all-btn">See all sitters</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="additionalinputmodal" class="modal">
+    <div class="row justify-content-center">
+        <div class="modal-content col-11 col-sm-11 col-md-9 col-lg-6 col-xl-5">
+            <span class="close">&times;</span>
+            <form id="additionalform">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 id="serviceconfirmmessage"></h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-12 col-sm-6">
+                        <label for="addtlinput-date">When?</label>
+                        <input type="date" class="form-control" id="addtlinput-date" data-toggle="popover"
+                            data-placement="left" title="Invalid Date" data-content="Please choose a date following today.">
+                    </div>
+                    <div class="form-group col-12 col-sm-6">
+                        <label for="addtlinput-zip">What is your zipcode?</label>
+                        <input type="text" class="form-control" id="addtlinput-zip" placeholder="Enter zip code"
+                            data-toggle="popover" data-placement="right" title="Invalid Zipcode" data-content="Please enter a valid 5-digit US zipcode.">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-purple-flat" id="submit-addtlinput">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="messagemodal" class="modal">
+    <div class="row justify-content-center">
+        <div class="modal-content col-11 col-sm-11 col-md-9 col-lg-6 col-xl-5">
+            <h3 id="alertmessage"></h3>
+            <div class="row" id="modalbtnrow">
+                <div class="col-6 d-flex justify-content-end">
+                    <button class="btn btn-purple-flat" id="searchagainbtn">Search again</button>
+                </div>
+                <div class="col-6 d-flex justify-content-start">
+                    <button class="btn btn-pink-flat see-all-btn" id="see-all-modal">See all sitters</button>
+                    <a href="/manage"><button class="btn btn-pink-flat" id="viewresbtn">View reservations</button></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

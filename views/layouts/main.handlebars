@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Fredoka+One|Quicksand" rel="stylesheet">
-	<link rel="shortcut icon" type="image/png" href="assets/images/dog-02.png">
+	<link rel="shortcut icon" type="image/png" href="assets/images/favicon-02.png">
 	<script src="//code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -23,7 +23,8 @@
 <body>
 	<nav class="navbar fixed-top navbar-expand-lg navbar-dark">
 		<a class="navbar-brand" href="/">
-			<h1>SitterFinder</h1>
+			<img class="logo" src="assets/images/favicon-02.png">
+			<h1 id="appname">SitterFinder</h1>
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 		 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,84 +53,81 @@
 	<div id="colorbg">
 		{{{ body }}}
 		<div id="loginmodal" class="modal">
-			<div class="modal-content">
-				<span id='loginClose' class="close">&times;</span>
-				<form>
-					<div class="form-group">
-						<label for="emailinput">Email address</label>
-						<input type="email" class="form-control" id="emailinput" placeholder="Enter email">
-					</div>
-					<div class="form-group">
-						<label for="pwinput">Password</label>
-						<input type="password" class="form-control" id="pwinput" placeholder="Password">
-					</div>
-					<button type="submit" class="btn btn-purple-flat" id="submitloginbtn">Submit</button>
-				</form>
+			<div class="row">
+				<div class="modal-content col-11 col-sm-11 col-md-9 col-lg-6 col-xl-5">
+					<span id='loginClose' class="close">&times;</span>
+					<form>
+						<div class="form-group">
+							<label for="emailinput">Email address</label>
+							<input type="email" class="form-control" id="emailinput" placeholder="Enter email">
+						</div>
+						<div class="form-group">
+							<label for="pwinput">Password</label>
+							<input type="password" class="form-control" id="pwinput" placeholder="Password">
+						</div>
+						<button type="submit" class="btn btn-purple-flat" id="submitloginbtn">Submit</button>
+					</form>
+				</div>
 			</div>
 		</div>
 
 		<!--begin oana's code/update -->
 		<div id="registermodal" class="modal">
-
-			<div class="modal-content">
-				<span id='registerClose' class="close">&times;</span>
-				<h3>Register for the SitterFinder</h3>
-				<form>
-					<div class="row">
-						<div class="col-6">
-							<div class="form-group">
-								<label for="nameregister">Name</label>
-								<input type="text" class="form-control" id="nameregister" placeholder="Enter your name">
+			<div class="row">
+				<div class="modal-content col-11 col-sm-11 col-md-9 col-lg-6 col-xl-5">
+					<span id='registerClose' class="close">&times;</span>
+					<h3>Register for the SitterFinder</h3>
+					<form>
+						<div class="row">
+							<div class="col-6">
+								<div class="form-group">
+									<label for="nameregister">Name</label>
+									<input type="text" class="form-control" id="nameregister" placeholder="Enter your name">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="form-group">
+									<label for="phoneregister">Phone Number</label>
+									<input type="text" class="form-control" id="phoneregister" placeholder="Enter your phone number">
+								</div>
 							</div>
 						</div>
-						<div class="col-6">
-							<div class="form-group">
-								<label for="phoneregister">Phone Number</label>
-								<input type="text" class="form-control" id="phoneregister" placeholder="Enter your phone number">
+						<div class="row">
+							<div class="col-6">
+								<div class="form-group">
+									<label for="addressregister">Address</label>
+									<input type="text" class="form-control" id="addressregister" placeholder="Enter your address">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="form-group">
+									<label for="zipcoderegister">ZIP Code</label>
+									<input type="text" class="form-control" id="zipcoderegister" placeholder="Enter your ZIP Code">
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-6">
-							<div class="form-group">
-								<label for="addressregister">Address</label>
-								<input type="text" class="form-control" id="addressregister" placeholder="Enter your address">
-							</div>
+						<div class="form-group">
+							<label for="emailregister">Email address</label>
+							<input type="email" class="form-control" id="emailregister" placeholder="Enter email">
 						</div>
-						<div class="col-6">
-							<div class="form-group">
-								<label for="zipcoderegister">ZIP Code</label>
-								<input type="text" class="form-control" id="zipcoderegister" placeholder="Enter your ZIP Code">
-							</div>
+						<div class="form-group">
+							<label for="pwregister">Password</label>
+							<input type="password" class="form-control" id="pwregister" placeholder="Password">
 						</div>
-					</div>
-					<div class="form-group">
-						<label for="emailregister">Email address</label>
-						<input type="email" class="form-control" id="emailregister" placeholder="Enter email">
-					</div>
-					<div class="form-group">
-						<label for="pwregister">Password</label>
-						<input type="password" class="form-control" id="pwregister" placeholder="Password">
-					</div>
-					<button type="submit" class="btn btn-purple-flat" id="submitregisterbtn">Submit</button>
-					<div class="form-group">
-						<label id="registerErrorMessage"></label>
-					</div>
-				</form>
+						<button type="submit" class="btn btn-purple-flat" id="submitregisterbtn">Submit</button>
+						<div class="form-group">
+							<label id="registerErrorMessage"></label>
+						</div>
+					</form>
+				</div>
 			</div>
 			<!--end oana's code/update -->
 		</div>
-		<div id="messagemodal" class="modal">
-			<div class="modal-content">
-				<span class="close">&times;</span>
-				<h3 id="alertmessage">Please sign in to use this feature.</h3>
-				<div class="row" id="modalbtnrow">
-					<div class="col-6 d-flex justify-content-end">
-						<button class="btn btn-purple-flat" id="searchagainbtn">Search again</button>
-					</div>
-					<div class="col-6 d-flex justify-content-start">
-						<a href="/manage"><button class="btn btn-pink-flat" id="viewresbtn">View reservations</button></a>
-					</div>
+		<div id="signinrequired" class="modal">
+			<div class="row">
+				<div class="modal-content col-11 col-sm-11 col-md-9 col-lg-6 col-xl-5">
+					<span class="close">&times;</span>
+					<h3>Please sign in to use this feature.</h3>
 				</div>
 			</div>
 		</div>

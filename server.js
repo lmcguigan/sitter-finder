@@ -3,10 +3,12 @@ var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var passport = require('passport');
 var session = require('express-session');
-var flash = require('connect-flash');
+//var flash = require('connect-flash');
 var cookieParser = require('cookie-parser');
 var moment= require("moment");
 
+// db modules
+var db = require("./models");
 var PORT = process.env.PORT || 3000;
 
 var app = express();
@@ -29,7 +31,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
+//app.use(flash());
 
 var htmlRoutes = require("./controllers/html-routes");
 var customerRoutes = require("./controllers/customers-api-routes");
@@ -41,8 +43,18 @@ app.use(customerRoutes);
 app.use(sitterRoutes);
 app.use(registrationRoutes);
 
-db.sequelize.sync({ force: true }).then(function () {
-  app.listen(PORT, function () {
+//Set up for passport-local-sequelize
+//==============================================================
+// passport.use(db.createStrategy());
+ 
+// passport.serializeUser(db.serializeUser());
+// passport.deserializeUser(db.deserializeUser());
+
+// Starts the server to begin listening
+// =============================================================
+db.sequelize.sync({ force: false }).then(function () {
+  app.listen(process.env.PORT || 3000, function () {
+    console.log("hi");
     console.log("App listening on PORT " + PORT);
   });
 });
