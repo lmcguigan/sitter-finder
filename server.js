@@ -3,7 +3,7 @@ var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var passport = require('passport');
 var session = require('express-session');
-//var flash = require('connect-flash');
+var flash = require('connect-flash');
 var cookieParser = require('cookie-parser');
 var moment= require("moment");
 
@@ -31,7 +31,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-//app.use(flash());
+app.use(flash());
 
 var htmlRoutes = require("./controllers/html-routes");
 var customerRoutes = require("./controllers/customers-api-routes");

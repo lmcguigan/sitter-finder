@@ -49,7 +49,7 @@ $(document).ready(function () {
                     $('#pwregister').val('');
                     $('#phoneregister').val('');
                     $('#addressregister').val('');
-//                    $('#registermodal').hide();
+                    $('#registermodal').hide();
                     $("#registermodal").css("display", "none");
                 })
             }
