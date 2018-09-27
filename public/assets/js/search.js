@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    var customer_id = localStorage.getItem("id");
     $(".close").click(function () {
         $(this).parents(".modal").css("display", "none");
     });
@@ -21,11 +22,10 @@ $(document).ready(function () {
         $("#searchmodal").css("display", "block");
     });
     //until we figure out how to have user data persist
-    var customerDummy = "2";
     $("#submitsearchbtn").click(function (event) {
         event.preventDefault();
         var newSitterRequest = {
-            customer_id: customerDummy,
+            customer_id: customer_id,
             service: $("#serviceselection").val(),
             location: $("#zipcodeinput").val(),
             date: $("#dateinput").val(),
@@ -147,9 +147,10 @@ $(document).ready(function () {
                     $("#additionalinputmodal").css("display", "block");
                     $("#submit-addtlinput").click(function (event) {
                         event.preventDefault();
+                        console.log("CUSTOMER ID", customer_id);
                         var resRequest = {
                             //this will need to be updated with logged in customerid
-                            customer_id: customerDummy,
+                            customer_id: customer_id,
                             sitter_id: sitter,
                             sitter_name: sittername,
                             service: sitterservice,
@@ -167,7 +168,7 @@ $(document).ready(function () {
                             $("#addtlinput-date").popover("show");
                         }
                         else {
-                            console.log(resRequest);
+                            console.log(resRequest.customer_id);
                             $.post("/api/reservations", resRequest)
                                 .then(function (data) {
                                     console.log(data);
