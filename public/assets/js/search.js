@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    var loggedin = false;
+
     $(".close").click(function () {
         $(this).parents(".modal").css("display", "none");
     });
@@ -73,12 +75,15 @@ $(document).ready(function () {
                         }
                         $(".book-btn").on("click", function (event) {
                             event.preventDefault();
-                            //if (signedin === true){
+                            if (loggedin === true){
 
-                            //}
-                            //else{
-                            //$("#signinrequired).css("display", "block");
-                            //}
+                            }
+                            else{
+                            $("#signinrequired").css("display", "block");
+                            $("#signinrequired").text();
+                            //$("#modalbtnrow").css("display", "none");
+                            
+                            }
                             var sitter = $(this).data("id");
                             var sittername = $(this).data("name");
                             var newResRequest = {
@@ -133,12 +138,15 @@ $(document).ready(function () {
                     var sitter = $(this).data("id");
                     var sittername = $(this).data("name");
                     var sitterservice = $(this).data("service");
-                    //if (signedin === true){
+                    if (loggedin === true){
+                    }
+                    else{
+                    $("#signinrequired").css("display", "block");
+                    $("#signinrequired").text();
+                    //$("#modalbtnrow").css("display", "none");
+                    
+                    }
 
-                    //}
-                    //else{
-                    //$("#signinrequired).css("display", "block");
-                    //}
                     $("#serviceconfirmmessage").text("Booking " + sitterservice + " with " + sittername);
                     $("#additionalinputmodal").css("display", "block");
                     $("#submit-addtlinput").click(function (event) {

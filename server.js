@@ -3,17 +3,12 @@ var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var passport = require('passport');
 var session = require('express-session');
-<<<<<<< HEAD
 var flash = require('connect-flash');
-=======
 var cookieParser = require('cookie-parser');
 var moment= require("moment");
 
 // db modules
 var db = require("./models");
-
-
->>>>>>> 9337f3f25096dfeba378185f3e5609b3678974e3
 
 var PORT = process.env.PORT || 3000;
 
@@ -29,7 +24,7 @@ app.set("view engine", "handlebars");
 
 app.use(express.static("public"));
 
-//app.use(cookieParser());
+app.use(cookieParser());
 app.use(session({
   secret: 'secret',
   resave: true,
@@ -37,60 +32,17 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-//app.use(flash());
+app.use(flash());
 
-// // Global variables
-// app.use(function(req, res, next){
-//   res.locals.success_msg = req.flash('success_msg');
-//   res.locals.error_msg = req.flash('error_msg');
-//   res.locals.error = req.flash('error');
-//   res.locals.user = req.user || null;
-//   next();
-// });
-
-// passport.use(new LocalStrategy({
-//   usernameField: 'email',
-//   passwordField: 'password',
-//   session: true
-// },
-//   function(username, password, done) {
-//     db.customers.findOne({ username: username }).then(function (customer) {
-//       if (!customer) { return done(null, false); }
-//       //if (!customer.verifyPassword(password)) { return done(null, false); }
-//       return done(customer);
-//     });
-//   }
-// ));
-
-// passport.serializeUser(function(customer, done) {
-//   //console.log(customer);
-//   done(null, customer);
-// });
- 
-// passport.deserializeUser(function(user, done) {
-//   // done(null, user)
-//   //console.log(user);
-//   db.customers.findOne({where: {id: user.id}}).then(function (customer) {
-//       //%%%%//customer or customer.id
-//       //console.log(customer);
-
-//     done(null, customer);
-//   });
-// });
-
-// Routes
-// =============================================================
 var htmlRoutes = require("./controllers/html-routes");
 var customerRoutes = require("./controllers/customers-api-routes");
 var sitterRoutes = require("./controllers/sitters-api-routes");
 var registrationRoutes = require("./controllers/sitters-api-routes");
 
-
 app.use(htmlRoutes);
 app.use(customerRoutes);
 app.use(sitterRoutes);
 app.use(registrationRoutes);
-
 
 //Set up for passport-local-sequelize
 //==============================================================
@@ -101,14 +53,8 @@ app.use(registrationRoutes);
 
 // Starts the server to begin listening
 // =============================================================
-<<<<<<< HEAD
 db.sequelize.sync({ force: false}).then(function () {
   app.listen(PORT, function () {
-=======
-db.sequelize.sync({ force: false }).then(function () {
-  app.listen(process.env.PORT || 3000, function () {
-    console.log("hi");
->>>>>>> 9337f3f25096dfeba378185f3e5609b3678974e3
     console.log("App listening on PORT " + PORT);
   });
 });

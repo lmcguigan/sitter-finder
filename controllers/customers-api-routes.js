@@ -2,22 +2,47 @@ var router = require('express').Router();
 var passport = require('passport');
 var db = require('../models');
 
-//Login Route
-router.post('/api/customers/login',  passport.authenticate('local-login', {
-  successRedirect: '/',
-  failureRedirect: '/',
-  failureFlash: true
-}),
-function(req, res) {
-    console.log("hello");
 
-    // if (req.body.remember) {
-    //   req.session.cookie.maxAge = 1000 * 60 * 3;
-    // } else {
-    //   req.session.cookie.expires = false;
-    // }
-res.redirect('/');
+//Code from Andrew
+// router.post('/api/customers/login', function(req, res, next) {
+//   passport.authenticate('local-login', function(error, user, info) {
+//       if(error) {
+//           return res.status(500).json(error);
+//       }
+//       if(!user) {
+//           return res.status(401).json(info.message);
+//       }
+//       res.json(user);
+//   })(req, res, next);
+// });
+
+//Code from Andrew
+
+
+//Login Route
+router.post('/api/customers/login', function(req, res, next) {
+  passport.authenticate('local-login', function(error, user, info) {
+      if(error) {
+          return res.status(500).json(error);
+      }
+      if(!user) {
+          return res.status(401).json(info.message);
+      }
+      res.json(user);
+  })(req, res, next);
 });
+
+
+// router.post('/api/customers/login',  passport.authenticate('local-login', {
+//   successRedirect: '/',
+//   failureRedirect: '/',
+//   failureFlash: true
+// }),
+// function(req, res) {
+//     console.log("hello");
+    
+// res.redirect('/');
+// });
 
 function isLoggedIn(req, res, next) {
 
@@ -73,6 +98,12 @@ router.get('/api/customers/logout', function(req, res) {
   res.redirect('/');
 });
 
+module.exports = router;
+
+
+
+
+
 
 // router.get('/register', function (req, res) {
 //   res.render('/', { message: req.flash('registerMessage') })
@@ -101,39 +132,6 @@ router.get('/api/customers/logout', function(req, res) {
 //           })
 
 
-// bcrypt.genSalt(10, (err, salt) => {
-//   bcrypt.hash(newUser.password, salt, (err, hash) => {
-//     if(err) throw err;
-//     newUser.password = hash;
-//     newUser.save()
-//       .then(user => {
-//         req.flash('success_msg', 'You are now registered and can log in');
-//         res.redirect('/users/login');
-//       })
-//       .catch(err => {
-//         console.log(err);
-//         return;
-//       });
-//   });
-// });
-//         }
-
-
-//       });
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
 //login Routes
 // router.post('/api/customers/login', 
 // passport.authenticate('local-login', {
@@ -158,22 +156,3 @@ router.get('/api/customers/logout', function(req, res) {
 //   req.flash('success_msg', 'You are logged out');
 //   res.redirect('/users/login');
 // });
-
-
-
-module.exports = router;
-
-    //passport.use(new LocalStrategy({
-      //     usernameField: 'email',
-      //     passwordField: 'password',
-      //     session: true
-      //   },
-      //     function(username, password, done) {
-      //       db.customers.findOne({ username: username }, function (err, customer) {
-      //         if (err) { return done(err); }
-      //         if (!customer) { return done(null, false); }
-      //         if (!customer.verifyPassword(password)) { return done(null, false); }
-      //         return done(null, customer);
-      //       });
-      //     }
-      //   ));

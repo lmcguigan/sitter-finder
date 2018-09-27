@@ -5,7 +5,15 @@ $(document).ready(function () {
     });
     var loggedin = false;
 
+
+
+ 
+
     //Register btn click fct
+    // $("#barregisterbtn").click(function() {
+    //     $('#registerClose').on('click', function() {
+    //         $('#registermodal').hide();
+    //     });
     //
     $("#barregisterbtn").click(function () {
         if (loggedin === false) {
@@ -45,6 +53,7 @@ $(document).ready(function () {
                     $('#pwregister').val('');
                     $('#phoneregister').val('');
                     $('#addressregister').val('');
+                    //$('#registermodal').hide();
                     $("#registermodal").css("display", "none");
                 })
             }
@@ -63,6 +72,10 @@ $(document).ready(function () {
 
     //Login btn click fct
     //
+    // $("#barloginbtn").click(function() {
+    //     $('#loginClose').on('click', function() {
+    //         $('#loginmodal').hide();
+    //     })
     $("#barloginbtn").click(function () {
         if (loggedin === false) {
             $("#loginmodal").css("display", "block");
@@ -80,20 +93,21 @@ $(document).ready(function () {
             email: $('#emailinput').val().trim(),
             password: $('#pwinput').val().trim()
         }
-        $.post('/api/customers/login', credentials, function (res) {
-            if (res.success) {
+
+        $.post('/api/customers/login', credentials, function () {
+           // if (res.success) {
                 loggedin = true;
-                console.log('test ' + res);
+                //console.log('test ' + res);
                 $("#barloginbtn").text('log out');
                 $("#loginmodal").css("display", "none");
-                $("#signedinas").text("Signed in as: " + res.email);
+                $("#signedinas").text("Signed in as: " + credentials.email);
                 $("#signedinas").css("display", "flex");
-            } else {
-                console.log('res failed')
+           // } else {
+                //console.log('res failed')
                 $('#emailinput').val('');
                 $('#pwinput').val('');
                 $("#loginmodal").css("display", "none");
-            }
+            //}
         });
 
         // $.get('/reservations', function() {
@@ -107,13 +121,9 @@ $(document).ready(function () {
     function logOutCustomer() {
         $.get('/api/customers/logout', function () {
             $("#barloginbtn").text("log in");
+            $("#signedinas").text('');
             loggedin = false;
         })
 
     }
 })
-
-// $(".close").click(function () {
-    //     $(this).parents(".modal").css("display", "none");
-    // });
-
