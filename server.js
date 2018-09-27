@@ -3,7 +3,6 @@ var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var passport = require('passport');
 var session = require('express-session');
-
 var moment = require("moment");
 var models = require("./models");
 // db modules
@@ -15,6 +14,7 @@ var app = express();
 
 
 app.use(express.static("public"));
+
 
 app.use(bodyParser.urlencoded({
   extended: true

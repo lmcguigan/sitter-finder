@@ -4,7 +4,15 @@ $(document).ready(function () {
         $(this).parents(".modal").css("display", "none");
     });
 
+
+
+ 
+
     //Register btn click fct
+    // $("#barregisterbtn").click(function() {
+    //     $('#registerClose').on('click', function() {
+    //         $('#registermodal').hide();
+    //     });
     //
     $("#barregisterbtn").click(function () {
         let text = $("#barloginbtn").text();
@@ -46,6 +54,7 @@ $(document).ready(function () {
                     $('#pwregister').val('');
                     $('#phoneregister').val('');
                     $('#addressregister').val('');
+                    //$('#registermodal').hide();
                     $("#registermodal").css("display", "none");
                 })
             }
@@ -63,6 +72,10 @@ $(document).ready(function () {
 
     //Login btn click fct
     //
+    // $("#barloginbtn").click(function() {
+    //     $('#loginClose').on('click', function() {
+    //         $('#loginmodal').hide();
+    //     })
     $("#barloginbtn").click(function () {
         let text = $("#barloginbtn").text();
         if(text === "log in"){
@@ -93,7 +106,7 @@ $(document).ready(function () {
                 $('#emailinput').val('');
                 $('#pwinput').val('');
                 $("#loginmodal").css("display", "none");
-            }
+            //}
         });
 
         // $.get('/reservations', function() {
@@ -112,8 +125,3 @@ $(document).ready(function () {
 
     }
 })
-
-// $(".close").click(function () {
-    //     $(this).parents(".modal").css("display", "none");
-    // });
-
