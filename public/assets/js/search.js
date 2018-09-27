@@ -139,7 +139,6 @@ $(document).ready(function () {
                     var sittername = $(this).data("name");
                     var sitterservice = $(this).data("service");
                     if (loggedin === true){
-
                     }
                     else{
                     $("#signinrequired").css("display", "block");
@@ -147,6 +146,7 @@ $(document).ready(function () {
                     //$("#modalbtnrow").css("display", "none");
                     
                     }
+
                     $("#serviceconfirmmessage").text("Booking " + sitterservice + " with " + sittername);
                     $("#additionalinputmodal").css("display", "block");
                     $("#submit-addtlinput").click(function (event) {
