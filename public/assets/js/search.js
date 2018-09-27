@@ -77,9 +77,7 @@ $(document).ready(function () {
 
                             //}
                             //else{
-                            //$("#alertmessage").text();
-                            //$("#modalbtnrow").css("display", "none");
-                            //$("#messagemodal").css("display", "block");
+                            //$("#signinrequired).css("display", "block");
                             //}
                             var sitter = $(this).data("id");
                             var sittername = $(this).data("name");
@@ -139,9 +137,7 @@ $(document).ready(function () {
 
                     //}
                     //else{
-                    //$("#alertmessage").text();
-                    //$("#modalbtnrow").css("display", "none");
-                    //$("#messagemodal").css("display", "block");
+                    //$("#signinrequired).css("display", "block");
                     //}
                     $("#serviceconfirmmessage").text("Booking " + sitterservice + " with " + sittername);
                     $("#additionalinputmodal").css("display", "block");

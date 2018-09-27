@@ -3,12 +3,11 @@ var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var passport = require('passport');
 var session = require('express-session');
+
 var moment = require("moment");
 var models = require("./models");
 // db modules
 var db = require("./models");
-
-
 
 var PORT = process.env.PORT || 3000;
 
@@ -55,6 +54,9 @@ require('./config/passport.js')(passport,models.customers);
 db.sequelize.sync({
   force: false
 }).then(function () {
+  app.listen(process.env.PORT || 3000, function () {
+
+db.sequelize.sync({ force: false }).then(function () {
   app.listen(process.env.PORT || 3000, function () {
     console.log("App listening on PORT " + PORT);
   });

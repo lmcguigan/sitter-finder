@@ -325,16 +325,6 @@ a:hover {
     }
 }
 
-.make-changes {
-    color: white;
-    background-color: blue;
-    font-weight: 600;
-}
-
-.end-changes [contenteditable=true] {
-    background-color: red;
-}
-
 .popover-header {
     margin-top: 0;
     background-color: #0F4369;
@@ -356,4 +346,17 @@ a:hover {
 
 #addtionalinputmodal {
     display: none;
+}
+.navbar-nav{
+    flex-direction: row;
+    float: right;
+    align-items: center;
+}
+@media screen and (max-width: 992px) {
+    .nav-item{
+        padding-left: 1rem;
+    }
+    #navbarSupportedContent{
+        border-top: 1px solid rgba(82, 215, 217, 0.5);
+    }
 }
