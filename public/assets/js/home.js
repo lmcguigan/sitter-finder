@@ -3,7 +3,6 @@ $(document).ready(function () {
     $(".close").click(function () {
         $(this).parents(".modal").css("display", "none");
     });
-    var loggedin = false;
 
 
 
@@ -16,7 +15,8 @@ $(document).ready(function () {
     //     });
     //
     $("#barregisterbtn").click(function () {
-        if (loggedin === false) {
+        let text = $("#barloginbtn").text();
+        if(text === "log in"){
             $("#registermodal").css("display", "block");
             $('#submitregisterbtn').on('click', createNewCustomer);
         }
@@ -34,7 +34,8 @@ $(document).ready(function () {
         }
         $.post('/api/customers/register', customer, function (res) {
             if (res.success) {
-                loggedin = true;
+                $("#signedinas").text("Signed in as: " + res.user.email);
+                $("#signedinas").css("display", "flex");
                 $("#registermodal").css("display", "none");
                 $("#barloginbtn").text("log out");
                 $("#barregisterbtn").css("display", "none");
@@ -57,7 +58,6 @@ $(document).ready(function () {
                     $("#registermodal").css("display", "none");
                 })
             }
-            console.log(loggedin);
         });
     }
     //  function getCustomer() {
@@ -77,7 +77,8 @@ $(document).ready(function () {
     //         $('#loginmodal').hide();
     //     })
     $("#barloginbtn").click(function () {
-        if (loggedin === false) {
+        let text = $("#barloginbtn").text();
+        if(text === "log in"){
             $("#loginmodal").css("display", "block");
             $('#submitloginbtn').on('click', loginInCustomer);
         }
@@ -93,16 +94,14 @@ $(document).ready(function () {
             email: $('#emailinput').val().trim(),
             password: $('#pwinput').val().trim()
         }
-
-        $.post('/api/customers/login', credentials, function () {
-           // if (res.success) {
-                loggedin = true;
-                //console.log('test ' + res);
+        $.post('/api/customers/login', credentials, function (res) {
+            if (res.success) {
                 $("#barloginbtn").text('log out');
                 $("#loginmodal").css("display", "none");
-                $("#signedinas").text("Signed in as: " + credentials.email);
+                $("#signedinas").text("Signed in as: " + res.user.email);
                 $("#signedinas").css("display", "flex");
-           // } else {
+            }
+            else {
                 //console.log('res failed')
                 $('#emailinput').val('');
                 $('#pwinput').val('');
@@ -122,7 +121,6 @@ $(document).ready(function () {
         $.get('/api/customers/logout', function () {
             $("#barloginbtn").text("log in");
             $("#signedinas").text('');
-            loggedin = false;
         })
 
     }
