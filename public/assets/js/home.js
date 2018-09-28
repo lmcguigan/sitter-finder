@@ -4,9 +4,29 @@ $(document).ready(function () {
         $(this).parents(".modal").css("display", "none");
     });
 
+    var customer_id = localStorage.getItem("id");
+    console.log("Home page 1 localStorage.id=" + customer_id);
+    if (customer_id !== null && customer_id !== 'null' ) {
+        console.log("Home page 2 localStorage.id=" + customer_id);
+        $("#barloginbtn").text("log out");
+        console.log("Home page 3 localStorage.name=" + localStorage.getItem("name"));
+        $("#signedinas").text("Signed in as: " + localStorage.getItem("name"));
+        $("#signedinas").css("display", "flex");
+    } else {
+        $("#barloginbtn").text("log in");
+    }
 
-
- 
+    $("#manage").click(function () {
+        let isAuthenticated = localStorage.getItem("id");
+        console.log("manage click 1 isAuthenticated=" + isAuthenticated)
+        if (!isAuthenticated) {
+            console.log("manage click 2a");
+            $("#signinrequired").css("display", "block");
+            $("#signinrequired").text();
+            return false;
+        }
+        console.log("manage click 2b");
+    });
 
     //Register btn click fct
     // $("#barregisterbtn").click(function() {
@@ -34,7 +54,9 @@ $(document).ready(function () {
         }
         $.post('/api/customers/register', customer, function (res) {
             if (res.success) {
-                $("#signedinas").text("Signed in as: " + res.user.email);
+                localStorage.setItem("id", res.user.id);
+                localStorage.setItem("name", res.user.name);
+                $("#signedinas").text("Signed in as: " + res.user.name);
                 $("#signedinas").css("display", "flex");
                 $("#registermodal").css("display", "none");
                 $("#barloginbtn").text("log out");
@@ -96,6 +118,8 @@ $(document).ready(function () {
         }
         $.post('/api/customers/login', credentials, function (res) {
             if (res.success) {
+                localStorage.setItem("id", res.user.id);
+                localStorage.setItem("name", res.user.name);
                 $("#barloginbtn").text('log out');
                 $("#loginmodal").css("display", "none");
                 $("#signedinas").text("Signed in as: " + res.user.email);
@@ -106,7 +130,7 @@ $(document).ready(function () {
                 $('#emailinput').val('');
                 $('#pwinput').val('');
                 $("#loginmodal").css("display", "none");
-            //}
+            }
         });
 
         // $.get('/reservations', function() {
@@ -119,8 +143,11 @@ $(document).ready(function () {
 
     function logOutCustomer() {
         $.get('/api/customers/logout', function () {
+            localStorage.setItem("id", null);
+            localStorage.setItem("name", null);
             $("#barloginbtn").text("log in");
             $("#signedinas").text('');
+            $(location).attr('href', '/');
         })
 
     }
