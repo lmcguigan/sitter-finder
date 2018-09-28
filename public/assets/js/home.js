@@ -124,7 +124,7 @@ $(document).ready(function () {
                 localStorage.setItem("name", res.user.name);
                 $("#barloginbtn").text('log out');
                 $("#loginmodal").css("display", "none");
-                $("#signedinas").text("Signed in as: " + res.user.email);
+                $("#signedinas").text("Signed in as: " + res.user.name);
                 $("#signedinas").css("display", "flex");
                 $("#barregisterbtn").css("display", "none");
             }
