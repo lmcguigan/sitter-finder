@@ -38,25 +38,22 @@ app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================
- var htmlRoutes = require("./controllers/html-routes");
- var customerRoutes = require("./controllers/customers-api-routes");
- var sitterRoutes = require("./controllers/sitters-api-routes");
- var registrationRoutes = require("./controllers/sitters-api-routes");
+var htmlRoutes = require("./controllers/html-routes");
+var customerRoutes = require("./controllers/customers-api-routes");
+var sitterRoutes = require("./controllers/sitters-api-routes");
+var registrationRoutes = require("./controllers/sitters-api-routes");
 
 //load passport strategies
-require('./config/passport.js')(passport,models.customers);
+require('./config/passport.js')(passport, models.customers);
 
- app.use(htmlRoutes);
- app.use(customerRoutes);
- app.use(sitterRoutes);
- app.use(registrationRoutes);
+app.use(htmlRoutes);
+app.use(customerRoutes);
+app.use(sitterRoutes);
+app.use(registrationRoutes);
 
 db.sequelize.sync({
   force: false
 }).then(function () {
-  app.listen(process.env.PORT || 3000, function () {
-
-db.sequelize.sync({ force: false }).then(function () {
   app.listen(process.env.PORT || 3000, function () {
     console.log("App listening on PORT " + PORT);
   });

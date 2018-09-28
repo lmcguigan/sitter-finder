@@ -106,7 +106,7 @@ $(document).ready(function () {
                 $('#emailinput').val('');
                 $('#pwinput').val('');
                 $("#loginmodal").css("display", "none");
-            //}
+            }
         });
 
         // $.get('/reservations', function() {
@@ -115,7 +115,7 @@ $(document).ready(function () {
         //     $("#loginmodal").hide();
         // }
 
-    }
+    };
 
     function logOutCustomer() {
         $.get('/api/customers/logout', function () {
