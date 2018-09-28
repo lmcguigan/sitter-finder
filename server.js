@@ -3,22 +3,11 @@ var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var passport = require('passport');
 var session = require('express-session');
-<<<<<<< HEAD
-var cookieParser = require('cookie-parser');
-var moment= require("moment");
-
-// db modules
-var db = require("./models");
-
-
-
-=======
 var moment = require("moment");
 var models = require("./models");
 // db modules
 var db = require("./models");
 
->>>>>>> 638aa8386c13c4583b9122cdb4bd951e661b6294
 var PORT = process.env.PORT || 3000;
 
 var app = express();
