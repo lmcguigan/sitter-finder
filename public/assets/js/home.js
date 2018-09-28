@@ -12,14 +12,16 @@ $(document).ready(function () {
         console.log("Home page 3 localStorage.name=" + localStorage.getItem("name"));
         $("#signedinas").text("Signed in as: " + localStorage.getItem("name"));
         $("#signedinas").css("display", "flex");
+        $("#barregisterbtn").css("display", "none");
     } else {
         $("#barloginbtn").text("log in");
+        $("#barregisterbtn").css("display", "flex");
     }
 
     $("#manage").click(function () {
-        let isAuthenticated = localStorage.getItem("id");
-        console.log("manage click 1 isAuthenticated=" + isAuthenticated)
-        if (!isAuthenticated) {
+        let customer_id = localStorage.getItem("id");
+        console.log("manage click 1 customer_id=" + customer_id)
+        if (customer_id === null || customer_id === 'null') {
             console.log("manage click 2a");
             $("#signinrequired").css("display", "block");
             $("#signinrequired").text();
@@ -124,6 +126,7 @@ $(document).ready(function () {
                 $("#loginmodal").css("display", "none");
                 $("#signedinas").text("Signed in as: " + res.user.email);
                 $("#signedinas").css("display", "flex");
+                $("#barregisterbtn").css("display", "none");
             }
             else {
                 //console.log('res failed')
@@ -139,7 +142,7 @@ $(document).ready(function () {
         //     $("#loginmodal").hide();
         // }
 
-    }
+    };
 
     function logOutCustomer() {
         $.get('/api/customers/logout', function () {

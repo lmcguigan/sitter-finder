@@ -1,5 +1,6 @@
 $(document).ready(function () {
     var customer_id = localStorage.getItem("id");
+    var loggedin = customer_id !== null && customer_id !== 'null'
     $(".close").click(function () {
         $(this).parents(".modal").css("display", "none");
     });
