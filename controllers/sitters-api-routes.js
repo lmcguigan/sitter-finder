@@ -8,7 +8,8 @@ var db = require("../models");
 router.get("/api/sitters", function (req, res){
     db.sitters.findAll({}).then(function (results){
         console.log(results);
-        res.json(results);
+        console.log("User: " + req.user);
+        res.json({results: results, isLoggedIn: req.isAuthenticated(), user: req.user});
     });
 });
 
@@ -19,10 +20,9 @@ router.post("/api/sitters", function (req, res) {
           location: req.body.location
         }
       }).then(function (results) {
-        var handlebarsObject = {
-            sitters: results
-        };
-        res.json(handlebarsObject);
+        console.log(req.user);
+        console.log("User: " + req.user);
+        res.json({results: results, isLoggedIn: req.isAuthenticated(), user: req.user});
     });
 });
 
