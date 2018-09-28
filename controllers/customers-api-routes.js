@@ -2,6 +2,22 @@ var router = require('express').Router();
 var passport = require('passport');
 var db = require('../models');
 
+// ---------------------------------------------------------
+router.post('/api/customers/login', function(req, res, next) {
+  passport.authenticate('local-login', function(error, user, info) {
+      if(error) {
+          return res.status(500).json(error);
+      }
+      if(!user) {
+          return res.status(401).json(info.message);
+      }
+      res.json(user);
+  })(req, res, next);
+});
+// ----------------------------------------------------------------
+
+
+
 //Login Route
 router.post('/api/customers/login',  passport.authenticate('local-login', {
   successRedirect: '/',

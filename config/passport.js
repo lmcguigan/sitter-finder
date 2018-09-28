@@ -3,6 +3,7 @@ var db = require('../models');
 
 module.exports = function(passport) {
     
+  
       passport.use('local-register', new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password',
