@@ -34,8 +34,9 @@ $(document).ready(function () {
         }
         $.post('/api/customers/register', customer, function (res) {
             if (res.success) {
-                $("#signedinas").text("Signed in as: " + res.user.email);
+                $("#signedinas").text("signed in as: " + res.user.email);
                 $("#signedinas").css("display", "flex");
+                $("#signedinmsg").css("display", "flex")
                 $("#registermodal").css("display", "none");
                 $("#barloginbtn").text("log out");
                 $("#barregisterbtn").css("display", "none");
@@ -98,7 +99,7 @@ $(document).ready(function () {
             if (res.success) {
                 $("#barloginbtn").text('log out');
                 $("#loginmodal").css("display", "none");
-                $("#signedinas").text("Signed in as: " + res.user.email);
+                $("#signedinas").text("signed in as: " + res.user.email);
                 $("#signedinas").css("display", "flex");
             }
             else {
@@ -121,6 +122,8 @@ $(document).ready(function () {
         $.get('/api/customers/logout', function () {
             $("#barloginbtn").text("log in");
             $("#signedinas").text('');
+            $("#signedinmsg").css("display", "none")
+            $("#barregisterbtn").css("display", "block");
         })
 
     }

@@ -62,7 +62,13 @@ h4 {
     display: none;
     color: white;
     align-items: center;
-    margin-left: 2rem;
+    margin-left: 1rem;
+}
+
+#signedinmsg {
+    color: white;
+    align-items: center;
+    margin-left: 1rem;
 }
 
 /*All styles pertaining to the modal and its contents*/
