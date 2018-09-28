@@ -142,7 +142,7 @@ $(document).ready(function () {
         //     $("#loginmodal").hide();
         // }
 
-    };
+    }
 
     function logOutCustomer() {
         $.get('/api/customers/logout', function () {
@@ -154,4 +154,4 @@ $(document).ready(function () {
         })
 
     }
-})
+});
