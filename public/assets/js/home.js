@@ -60,6 +60,7 @@ $(document).ready(function () {
                 localStorage.setItem("name", res.user.name);
                 $("#signedinas").text("Signed in as: " + res.user.name);
                 $("#signedinas").css("display", "flex");
+                $("#signedinmsg").css("display", "flex")
                 $("#registermodal").css("display", "none");
                 $("#barloginbtn").text("log out");
                 $("#barregisterbtn").css("display", "none");
