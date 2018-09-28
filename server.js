@@ -51,26 +51,10 @@ app.use(customerRoutes);
 app.use(sitterRoutes);
 app.use(registrationRoutes);
 
-<<<<<<< HEAD
-
-//Set up for passport-local-sequelize
-//==============================================================
-// passport.use(db.createStrategy());
- 
-// passport.serializeUser(db.serializeUser());
-// passport.deserializeUser(db.deserializeUser());
-
-// Starts the server to begin listening
-// =============================================================
-db.sequelize.sync({ force: false}).then(function () {
-  app.listen(process.env.PORT || 3000, function () {
-    console.log("hi");
-=======
 db.sequelize.sync({
   force: false
 }).then(function () {
   app.listen(process.env.PORT || 3000, function () {
->>>>>>> 638aa8386c13c4583b9122cdb4bd951e661b6294
     console.log("App listening on PORT " + PORT);
   });
 });
