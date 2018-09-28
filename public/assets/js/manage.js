@@ -35,7 +35,8 @@ $(document).ready(function () {
         })
     });
 
-    $(".delete-reservation").click(function () {
+    $(".delete-reservation").click(function (event) {
+        event.preventDefault();
         //alert("Reservation Deleted");
         $("#reservation-modal").css("display", "block")
         $(this).closest('.resrow').remove();
