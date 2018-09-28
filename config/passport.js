@@ -1,34 +1,4 @@
 
-<<<<<<< HEAD
-module.exports = function(passport) {
-    
-  
-      passport.use('local-register', new LocalStrategy({
-        usernameField: 'email',
-        passwordField: 'password',
-        session: true,
-        //passReqToCallback : true
-      },
-        function(email, password, done) {
-        console.log("Hit passport register")
-          db.customers.findOne({ where: {email: email, password: password} }).then(function (err, customer) {
-              console.log("Returned something");
-              console.log(customer);
-            if (err) { 
-                console.log("Had an error! " + err);
-                return done(err); }
-            if (!customer) {
-                //console.log("No customer")
-                return done(null, false, req.flash('registerMessage', 'The email is already used')); 
-            }
-            if (!customer.verifyPassword(password)) { 
-                //console.log("Bad password")
-                return done(null, false); 
-            }
-            //console.log("Returning customer");
-            return done(null, customer);
-          });
-=======
   //load bcrypt
   var bCrypt = require('bcrypt-nodejs');
 
@@ -48,7 +18,6 @@ module.exports = function(passport) {
       User.findById(id).then(function(user) {
         if(user){
           done(null, user.get());
->>>>>>> 638aa8386c13c4583b9122cdb4bd951e661b6294
         }
         else{
           done(user.errors,null);
