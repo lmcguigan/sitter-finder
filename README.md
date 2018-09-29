@@ -21,10 +21,10 @@ Technology Utilized:
   - MySql and Jaws DB 
   -[PPP and video demo:](https://drive.google.com/file/d/1lBv2-2NHwmPdg-s0tHjueegExS4nFr_-/view?usp=sharing)
 
-An application that allows users to search available pet sitters in their area by location and service offered, and provides an interface for viewing and deleting upcoming reservations. [SitterFinder](https://stormy-lake-87916.herokuapp.com/)
 
 > The application lets the user search thoughtout various 
 > pet sitters in their area.
 > Allowing the user to register and create an account
 > which allows the user to book a specific sitter for 
 > friendly critter.
+ [SitterFinder](https://stormy-lake-87916.herokuapp.com/)
