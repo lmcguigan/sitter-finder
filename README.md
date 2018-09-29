@@ -19,7 +19,7 @@ An application that allows users to search available pet sitters in their area b
 Technology Utilized:
   - Handlebars,Express, Express-Handlebars, Body-Parser, Passaport, Express-session, Moment JS, and Sequelize.
   - MySql and Jaws DB 
-  -[PPP and video demo:](https://drive.google.com/file/d/1lBv2-2NHwmPdg-s0tHjueegExS4nFr_-/view?usp=sharing)
+  -[Video demo](https://drive.google.com/file/d/1cZKAHtr5Zmy9LDyetN3Z_cbLya6tDxXz/view?usp=sharing)
 
 
 > The application lets the user search thoughtout various 
