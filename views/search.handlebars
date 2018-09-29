@@ -1,35 +1,3 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="/">
-        <img class="logo" src="assets/images/favicon-02.png">
-        <h1 id="appname">SitterFinder</h1>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/search">find a sitter</a>
-            </li>
-            <li class="nav-item">
-                <a id="manage" class="nav-link" href="/manage">my reservations</a>
-            </li>
-            {{#if user}} {{> navbar/nav-block}}
-            {{else}}
-            <li class="nav-item" id="signedinas">
-            </li>
-            <li class="nav-item">
-                <button class="btn btn-pink auth-btn" id="barloginbtn">log in</button>
-            </li>
-            <li class="nav-item">
-                <button class="btn btn-purple auth-btn" id="barregisterbtn">register</button>
-            </li>
-            {{/if}}
-        </ul>
-    </div>
-</nav>
 <div class="splash top">
     <div class="container-fluid">
         <div class="row justify-content-center">

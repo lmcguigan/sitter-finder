@@ -25,7 +25,7 @@ router.get("/manage", isLoggedIn, function (req, res) {
             customerId: req.user.id
         }
     }).then(function (results) {
-        res.render("manage", { reservations: results, user: user});
+        res.render("manage", { reservations: results, user: user });
     })
 
 });

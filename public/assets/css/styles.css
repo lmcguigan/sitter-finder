@@ -62,13 +62,6 @@ h4 {
     display: none;
     color: white;
     align-items: center;
-    margin-left: 1rem;
-}
-
-#signedinmsg {
-    color: white;
-    align-items: center;
-    margin-left: 1rem;
 }
 
 /*All styles pertaining to the modal and its contents*/
@@ -368,5 +361,11 @@ a:hover {
     }
     #navbarSupportedContent{
         border-top: 1px solid rgba(82, 215, 217, 0.5);
+    }
+}
+@media screen and (min-width: 993px){
+    #signedinas{
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
     }
 }
