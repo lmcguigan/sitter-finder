@@ -40,8 +40,8 @@ app.set("view engine", "handlebars");
 // =============================================================
 var htmlRoutes = require("./controllers/html-routes");
 var customerRoutes = require("./controllers/customers-api-routes");
-var sitterRoutes = require("./controllers/registrations-api-routes");
-var registrationRoutes = require("./controllers/sitters-api-routes");
+var sitterRoutes = require("./controllers/sitters-api-routes");
+var registrationRoutes = require("./controllers/registrations-api-routes");
 
 //load passport strategies
 require('./config/passport.js')(passport, models.customers);

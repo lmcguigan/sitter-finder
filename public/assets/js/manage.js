@@ -42,12 +42,13 @@ $(document).ready(function () {
         $(this).closest('.resrow').remove();
 
         var deleteId = $(this).data("id");
-
+        console.log(deleteId)
         $.ajax({
             url: "/api/delete",
             method: "DELETE",
             data: {
                 id: deleteId
+            
             }
         })
 
